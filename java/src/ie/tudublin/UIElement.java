@@ -1,3 +1,4 @@
+
 package ie.tudublin;
 
 
@@ -13,7 +14,7 @@ public abstract class UIElement
 public UIElement(float x, float y, PApplet UI)
 {
     this.x = x;
-    this. y = y;
+    this.y = y;
     this.UI = UI;
 }
 
