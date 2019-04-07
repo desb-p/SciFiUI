@@ -6,10 +6,9 @@ import processing.core.PImage;
 public class UI extends PApplet
 {
     Button startButton;
-    
     PImage Mockingjay;
-
-    boolean b;
+    Boolean press;
+    
 
     boolean[] keys = new boolean[1024];
 
@@ -39,15 +38,10 @@ public class UI extends PApplet
 
     public void setup()
     {
-       startButton = new Button(this, 50, 100, 100, 50, "Start");
-       
-       //mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        
+        startButton = new Button(this, 50, 100, 100, 50, "Start");
         Mockingjay = loadImage("mockingjay.jpeg");
 
     }
-
-    Radar radar;
 
     public void draw()
     {
@@ -58,13 +52,17 @@ public class UI extends PApplet
         strokeWeight(1);
         rect(30,20, width - 50, height - 50); // x = 30, y = 20.
         rect(40,30, width - 70, height - 70);
-        
         image(Mockingjay, 550, 180);
-        
         circle();
-       
+
+        // if(press == true)
+        // {
+            
+        // }
+        
     }
 
+    // Circle motion variables.
     float circleX = 720;
     float circleY = 500;
 
@@ -72,7 +70,6 @@ public class UI extends PApplet
     int rotate2 = 1;
     int rotate3 = 1;
 
-    
 // Circle motion.
   void circle()
   {
@@ -88,7 +85,6 @@ public class UI extends PApplet
     fill(255);
     text("Start", circleX-15, circleY+10);
   
-
     noFill();
     strokeWeight(4);
     stroke(0,200,255);
@@ -100,9 +96,16 @@ public class UI extends PApplet
     stroke(255,0,0);
     arc(circleX,circleY,210,210,radians(-rotate2),radians(-rotate2 + 280));
   
-
   } 
-    
+  
+    public void mousePressed()
+    {
+        if(mouseX > (width/2)-30 && mouseY < (height/2)-30)
+        {
+            press =! press;
+        }
+    }
 
-    
+     
 }
+
