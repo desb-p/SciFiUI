@@ -9,10 +9,7 @@ public class UI extends PApplet
     
     PImage Mockingjay;
 
-
     boolean b;
-    
-    
 
     boolean[] keys = new boolean[1024];
 
@@ -48,9 +45,6 @@ public class UI extends PApplet
         
         Mockingjay = loadImage("mockingjay.jpeg");
 
-        
-
-
     }
 
     Radar radar;
@@ -68,7 +62,6 @@ public class UI extends PApplet
         image(Mockingjay, 550, 180);
         
         circle();
-       
        
     }
 
@@ -88,19 +81,16 @@ public class UI extends PApplet
     rotate2 = rotate + 2;
     rotate3  = rotate + 3;
     
-  
     noStroke();
     fill(50);
     ellipse(circleX,circleY,100,100);
+
     fill(255);
-    
     text("Start", circleX-15, circleY+10);
   
-    
-    
+
     noFill();
     strokeWeight(4);
-    
     stroke(0,200,255);
     arc(circleX,circleY,120,120,radians(rotate), radians(rotate + 180));
     
