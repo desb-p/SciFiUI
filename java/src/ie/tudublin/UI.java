@@ -1,11 +1,13 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class UI extends PApplet
 {
     Button b;
     MovingCircle mc;
+
 
     boolean[] keys = new boolean[1024];
 
@@ -27,34 +29,37 @@ public class UI extends PApplet
 
     public void settings()
     {
-        size(800, 800);
+        //size(800, 800);
         // Use fullscreen instead of size to make your interface fullscreen
-        //fullScreen(P3D); 
+        fullScreen();
+
     }
 
     public void setup()
     {
-        b = new Button(this, 50, 50, 100, 50, "I am a button");
-        mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 1, width / 2, height / 2, 100);
+       // b = new Button(this, 50, 50, 100, 50, "I am a button");
+       //mc = new MovingCircle(this, width / 2, height * .75f, 50);
+        //radar = new Radar(this, 1, width / 2, height / 2, 100);
+    
+        fill(255);
     }
 
     Radar radar;
 
     public void draw()
     {
+        
+
         background(0);
-        b.render();
-
-        mc.update();
-        mc.render();
-
-        radar.update();
-        radar.render();
-
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
+        fill(0);
+        stroke(51,102,255);
+        strokeWeight(4);
+        rect(30,20, width - 50, height - 50); // x = 30, y = 20.
+        rect(40,30, width - 70, height - 70);
+        
+        
+        
+    
+       
     }
 }
