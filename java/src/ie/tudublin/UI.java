@@ -5,10 +5,12 @@ import processing.core.PImage;
 
 public class UI extends PApplet
 {
-    Button b;
+    Button startButton;
+    
     MovingCircle mc;
 
     PImage Mockingjay;
+    
 
     boolean[] keys = new boolean[1024];
 
@@ -38,9 +40,9 @@ public class UI extends PApplet
 
     public void setup()
     {
-       // b = new Button(this, 50, 50, 100, 50, "I am a button");
+       startButton = new Button(this, 50, 100, 100, 50, "Start");
+       //fill(0,255,255);
        //mc = new MovingCircle(this, width / 2, height * .75f, 50);
-        //radar = new Radar(this, 1, width / 2, height / 2, 100);
         
         Mockingjay = loadImage("mockingjay.jpeg");
         fill(255);
@@ -55,13 +57,21 @@ public class UI extends PApplet
         background(0);
         fill(0);
         stroke(51,102,255);
-        strokeWeight(4);
+        strokeWeight(1);
         rect(30,20, width - 50, height - 50); // x = 30, y = 20.
         rect(40,30, width - 70, height - 70);
         
         image(Mockingjay, 550, 250);
         
-    
+        circle();
        
+    }
+
+
+    
+    void circle()
+
+    {
+        ellipse(700,550,60,60);
     }
 }
