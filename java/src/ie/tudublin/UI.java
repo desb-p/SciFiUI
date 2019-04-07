@@ -41,11 +41,10 @@ public class UI extends PApplet
     public void setup()
     {
        startButton = new Button(this, 50, 100, 100, 50, "Start");
-       //fill(0,255,255);
+       
        //mc = new MovingCircle(this, width / 2, height * .75f, 50);
         
         Mockingjay = loadImage("mockingjay.jpeg");
-        fill(255);
     }
 
     Radar radar;
@@ -72,6 +71,11 @@ public class UI extends PApplet
     void circle()
 
     {
-        ellipse(700,550,60,60);
+        float x = 700;
+        float y = 550;
+        ellipse(x,y,100,100);
+        ellipse(x,y,90,90);
+        ellipse(x,y, 80,80);
+        
     }
 }
