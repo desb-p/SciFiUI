@@ -1,5 +1,6 @@
 package ie.tudublin;
 
+//import javafx.scene.shape.Circle;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -8,24 +9,26 @@ public class UI extends PApplet
     Button startButton;
     PImage Mockingjay;
     Boolean press;
+    Map map;
+    Circle c;
+
+
+    // boolean[] keys = new boolean[1024];
+
+    // public void keyPressed()
+    // {
+    //     keys[keyCode] = true;
+    // }
     
+    // public void keyReleased()
+    // {
+    //     keys[keyCode] = false;
+    // }
 
-    boolean[] keys = new boolean[1024];
-
-    public void keyPressed()
-    {
-        keys[keyCode] = true;
-    }
-    
-    public void keyReleased()
-    {
-        keys[keyCode] = false;
-    }
-
-    public boolean checkKey(int c)
-    {
-        return keys[c] || keys [Character.toUpperCase(c)];
-    }
+    // public boolean checkKey(int c)
+    // {
+    //     return keys[c] || keys [Character.toUpperCase(c)];
+    // }
     
 
     public void settings()
@@ -39,9 +42,14 @@ public class UI extends PApplet
     public void setup()
     {
         startButton = new Button(this, 50, 100, 100, 50, "Start");
+        map = new Map();
         Mockingjay = loadImage("mockingjay.jpeg");
-
+        //cir = new Circle(100,100, 720, 550, this);
+        c = new Circle(width/2, 500, this);
+        
     }
+
+    
 
     public void draw()
     {
@@ -53,7 +61,8 @@ public class UI extends PApplet
         rect(30,20, width - 50, height - 50); // x = 30, y = 20.
         rect(40,30, width - 70, height - 70);
         image(Mockingjay, 550, 180);
-        circle();
+        
+        c.render();
 
         // if(press == true)
         // {
@@ -62,50 +71,12 @@ public class UI extends PApplet
         
     }
 
-    // Circle motion variables.
-    float circleX = 720;
-    float circleY = 500;
-
-    int rotate = 1;
-    int rotate2 = 1;
-    int rotate3 = 1;
-
-// Circle motion.
-  void circle()
-  {
-    
-    rotate = rotate + 1;
-    rotate2 = rotate + 2;
-    rotate3  = rotate + 3;
-    
-    noStroke();
-    fill(50);
-    ellipse(circleX,circleY,100,100);
-
-    fill(255);
-    text("Start", circleX-15, circleY+10);
   
-    noFill();
-    strokeWeight(4);
-    stroke(0,200,255);
-    arc(circleX,circleY,120,120,radians(rotate), radians(rotate + 180));
-    
-    stroke(0,0,255);
-    arc(circleX,circleY,180,180,radians(rotate3),radians(rotate3 + 300));
-
-    stroke(255,0,0);
-    arc(circleX,circleY,210,210,radians(-rotate2),radians(-rotate2 + 280));
-  
-  } 
   
     public void mousePressed()
     {
-        if(mouseX > (width/2)-30 && mouseY < (height/2)-30)
-        {
-            press =! press;
-        }
+       
     }
-
      
 }
 
