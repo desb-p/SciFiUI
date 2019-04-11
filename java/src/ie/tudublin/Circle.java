@@ -6,8 +6,7 @@ import processing.core.PApplet;
 public class Circle extends UIElement
 
 {
-// private  int CircleX = 700;
-// private  int CircleY = 550;//
+
 
     int rotate = 1;
     int rotate2 = 1;
@@ -15,21 +14,14 @@ public class Circle extends UIElement
 
 
 
-    // public Circle (float x, float y,int circleX, int circleY, PApplet UI)
+    
     public Circle (float x, float y, PApplet UI)
     {
         super(x, y, UI);
-        // this.CircleX = circleX;
-        // this.CircleY= circleY;
         
     }
 
-    // public Circle (float x, float y, PApplet UI)
-    // {
-    //     super(x, y, UI);
-    //     //this.CircleX = circleX;
-    //     //this.CircleY= circleY;
-    // }
+
 
     public void render()
     {
