@@ -18,15 +18,6 @@ public class Map
     public void render()
     {
 
-        // int x, y;
-        // int x2 = ui.width/2;
-        // int y2 = ui.height/2;
-
-        // int dot = 5;
-        // int distance = 3;
-
-        // ui.stroke(255);
-
        
 
    
