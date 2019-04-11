@@ -2,17 +2,18 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
+// used polymorphism.
 public class Circle extends UIElement
 
 {
-private  int CircleX = 700;
-private  int CircleY = 550;
+// private  int CircleX = 700;
+// private  int CircleY = 550;//
 
     int rotate = 1;
     int rotate2 = 1;
     int rotate3 = 1;
 
-    //PApplet ui;
+
 
     // public Circle (float x, float y,int circleX, int circleY, PApplet UI)
     public Circle (float x, float y, PApplet UI)
@@ -39,7 +40,7 @@ private  int CircleY = 550;
     
     ui.noStroke();
     ui.fill(50);
-    ui.ellipse(x, y, 100, 100);
+    ui.ellipse(x,y, 100, 100);
 
     ui.fill(255);
     ui.text("Start", x - 15, y + 10);
