@@ -13,6 +13,7 @@ public class UI extends PApplet
     Button button4; 
 
     PImage Mockingjay;
+    PImage Panem;
 
     Circle c;
 
@@ -53,7 +54,12 @@ public class UI extends PApplet
         button2 = new Button(this, 1000, 200, 100, 50, "Info");
         button3 = new Button(this, 300, 700, 100,50,  "Weapons");
         button4 = new Button(this, 1000, 700, 100, 50, "Exit");
+
+      
+
+
         Mockingjay = loadImage("mockingjay.jpeg");
+        Panem = loadImage("panem.jpeg");
 
         
         c = new Circle(width/2, 500, this);
@@ -89,7 +95,9 @@ public class UI extends PApplet
             button2.render();
             button3.render();
             button4.render();
-                
+
+           
+            
         }
 
   
