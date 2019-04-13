@@ -1,5 +1,7 @@
 package ie.tudublin;
 
+import java.util.ArrayList;
+
 //import javafx.scene.shape.Circle;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -7,10 +9,12 @@ import processing.core.PImage;
 public class UI extends PApplet
 {
     Button startButton;
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4; 
+    // Button button1;
+    // Button button2;
+    // Button button3;
+    // Button button4; 
+
+    ArrayList<Button>buttons = new ArrayList<>();
 
     PImage Mockingjay;
     PImage Panem;
@@ -50,13 +54,12 @@ public class UI extends PApplet
         // Buttons
         startButton = new Button(this, 50, 100, 100, 50, "Start");
 
-        button1 = new Button(this, 300, 200, 100, 50, "Map");
-        button2 = new Button(this, 1000, 200, 100, 50, "Info");
-        button3 = new Button(this, 300, 700, 100,50,  "Weapons");
-        button4 = new Button(this, 1000, 700, 100, 50, "Exit");
+        buttons.add(new Button(this, 300, 200, 100, 50, "Map"));
+        buttons.add(new Button(this, 1000, 200, 100, 50, "Info"));
+        buttons.add(new Button(this, 300, 700, 100,50,  "Weapons"));
+        buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
 
       
-
 
         Mockingjay = loadImage("mockingjay.jpeg");
         Panem = loadImage("panem.jpeg");
@@ -91,13 +94,11 @@ public class UI extends PApplet
             background(0);
             stroke(255,128,128);
 
-            button1.render();
-            button2.render();
-            button3.render();
-            button4.render();
+            for(Button b: buttons)
+            {
+                b.render();
+            }
 
-           
-            
         }
 
   
@@ -110,5 +111,7 @@ public class UI extends PApplet
         {
             set = 1;
         }
+
+
     }
 }
