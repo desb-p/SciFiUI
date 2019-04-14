@@ -29,7 +29,7 @@ public class Button
 
         //ui.ellipse(x, y, width, width);
         //ui.stroke(63,133,255);
-        ui.ellipse(x,y,width-200,width-200);
+        ui.ellipse(x,y,width,width);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text, x, y);
 

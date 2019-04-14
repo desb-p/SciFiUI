@@ -111,29 +111,57 @@ public class UI extends PApplet
                 int dot = 3;
                 int dist = 3;
                 image(Panem,width/2-200,height/2-200,400,400);
+                
+                stroke(0,255,0);
                 pushMatrix();
-                translate(x2-200,y2-100);
+                translate(x2-200,y2-150);
 
-                ellipse(85,5,dot,dot);
-                text("District 7", 90+dist,20);
+                ellipse(95,15,dot,dot);
+                text("District 7", 105+dist,25);
 
-                ellipse(150,20,dot,dot);
-                text("District 1", 150+dist,30);
+                ellipse(105,50,dot,dot);
+                text("District 1", 110+dist,55);
 
-                ellipse(76,45,dot,dot);
-                text("District 3", 90+dist,50);
+                ellipse(60,70,dot,dot);
+                text("District 4", 65+dist,75);
 
-                ellipse(103,90,dot,dot);
-                text("District 2", 105+dist,100);
+                ellipse(105,87,dot,dot);
+                text("Capitol", 110+dist,95);
 
-                ellipse(130,130,dot,dot);
-                text("District 4", 135+dist,140);
+                ellipse(220,140,dot,dot);
+                text("District 9", 210+dist,150);
 
-                ellipse(160,100,dot,dot);
-                text("District 10", 165+dist,105);
+                ellipse(125,120,dot,dot);
+                text("District 2", 135+dist,130);
+
+                ellipse(67,120,dot,dot);
+                text("District 5", 75+dist,130);
+
+                ellipse(140,205,dot,dot);
+                text("District 10", 150+dist,215);
+
+                ellipse(260,230,dot,dot);
+                text("District 11", 270+dist,240);
+
+                ellipse(290,210,dot,dot);
+                text("District 8", 280+dist,215);
+                
+                ellipse(310,180,dot,dot);
+                text("District 12", 320+dist,190);
+
+                ellipse(260,100,dot,dot);
+                text("District 6", 270+dist,110);
+
+                ellipse(260,140,dot,dot);
+                text("District 3", 270+dist,150);
+
+
+
+
+
                
-                ellipse(160,100,dot,dot);
-                text("District 9", 165+dist,105);
+              
+
 
                
 
