@@ -112,9 +112,10 @@ public class UI extends PApplet
                 int dist = 3;
                 image(Panem,width/2-200,height/2-200,400,400);
                 
-                stroke(0,255,0);
+                stroke(255,0,0);
                 pushMatrix();
                 translate(x2-200,y2-150);
+
 
                 ellipse(95,15,dot,dot);
                 text("District 7", 105+dist,25);
@@ -128,10 +129,10 @@ public class UI extends PApplet
                 ellipse(105,87,dot,dot);
                 text("Capitol", 110+dist,95);
 
-                ellipse(220,140,dot,dot);
+                ellipse(220,100,dot,dot);
                 text("District 9", 210+dist,150);
 
-                ellipse(125,120,dot,dot);
+                ellipse(150,120,dot,dot);
                 text("District 2", 135+dist,130);
 
                 ellipse(67,120,dot,dot);
@@ -152,7 +153,7 @@ public class UI extends PApplet
                 ellipse(260,100,dot,dot);
                 text("District 6", 270+dist,110);
 
-                ellipse(260,140,dot,dot);
+                ellipse(270,130,dot,dot);
                 text("District 3", 270+dist,150);
 
 
