@@ -110,9 +110,15 @@ public class UI extends PApplet
                 int y2 = height/2;
                 int dot = 3;
                 int dist = 3;
+
+            
                 image(Panem,width/2-200,height/2-200,400,400);
                 
+                fill(255);
+                text("PANEM",x2-30,240);
                 stroke(255,0,0);
+                
+
                 pushMatrix();
                 translate(x2-200,y2-150);
 
@@ -156,29 +162,8 @@ public class UI extends PApplet
                 ellipse(270,130,dot,dot);
                 text("District 3", 270+dist,150);
 
-
-
-
-
-               
-              
-
-
-               
-
-
-
-
-
-
-
-
-
                 popMatrix();
             }
-
-
-        
 
         }
 
