@@ -19,6 +19,12 @@ public class UI extends PApplet
     PImage Mockingjay;
     PImage Panem;
 
+    PImage weapon1;
+    PImage weapon2;
+    PImage weapon3;
+    PImage weapon4;
+    PImage weapon5;
+
     Circle c;
 
     int set = 0;
@@ -56,7 +62,7 @@ public class UI extends PApplet
         startButton = new Button(this, 50, 100, 100, 50, "Start");
 
         buttons.add(new Button(this, 300, 200, 100, 50, "Map"));
-       // buttons.add(new Button(this, 1000, 200, 100, 50, "Info"));
+       buttons.add(new Button(this, 1000, 200, 100, 50, "Info"));
         //buttons.add(new Button(this, 300, 700, 100,50,  "Weapons"));
         //buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
 
@@ -66,6 +72,11 @@ public class UI extends PApplet
 
         Mockingjay = loadImage("mockingjay.jpeg");
         Panem = loadImage("map.png");
+        weapon1 = loadImage("axe.png");
+        weapon2 = loadImage("bowarrow.png");
+        weapon3 = loadImage("spear.png");
+        weapon4 = loadImage("sword.jpg");
+        weapon5 = loadImage("trident.jpg");
         
         
 
@@ -92,6 +103,8 @@ public class UI extends PApplet
             
             c.render();
 
+
+
         
         }
         // when buttons are clicked
@@ -100,12 +113,14 @@ public class UI extends PApplet
             background(0);
             stroke(255,128,128);
 
+            
             for(Button b: buttons)
             {
                 b.render();
             }
             if(draw == true)
             {
+
                 int x2 = width/2;
                 int y2 = height/2;
                 int dot = 3;
