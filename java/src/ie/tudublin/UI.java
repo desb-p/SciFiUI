@@ -1,8 +1,6 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
-
-//import javafx.scene.shape.Circle;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -62,9 +60,9 @@ public class UI extends PApplet
         startButton = new Button(this, 50, 100, 100, 50, "Start");
 
         buttons.add(new Button(this, 300, 200, 100, 50, "Map"));
-       buttons.add(new Button(this, 1000, 200, 100, 50, "Info"));
-        //buttons.add(new Button(this, 300, 700, 100,50,  "Weapons"));
-        //buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
+        buttons.add(new Button(this, 1000, 200, 100, 50, "Weapons"));
+        buttons.add(new Button(this, 300, 700, 100,50,  "Clock"));
+        buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
 
         
       
@@ -78,9 +76,7 @@ public class UI extends PApplet
         weapon4 = loadImage("sword.jpg");
         weapon5 = loadImage("trident.jpg");
         
-        
-
-        
+    
         c = new Circle(width/2, 500, this);
 
         
