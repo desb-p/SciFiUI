@@ -1,6 +1,5 @@
 package ie.tudublin;
 
-
 import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -26,7 +25,9 @@ public class UI extends PApplet
     PImage weapon5;
 
     Circle c;
+    Grid g;
 
+    
     int set = 0;
     boolean draw = false;
 
@@ -53,6 +54,9 @@ public class UI extends PApplet
         //size(800, 800);
         // Use fullscreen instead of size to make your interface fullscreen
         fullScreen();
+
+
+        
 
     }
 
@@ -84,7 +88,8 @@ public class UI extends PApplet
         
     
         c = new Circle(width/2, 500, this);
-
+        g = new Grid(this, width/2,500, width, height);
+        
         
     }
 
@@ -105,6 +110,7 @@ public class UI extends PApplet
             rect(40,30, width - 70, height - 70);
             image(Mockingjay, 550, 180);
             c.render();
+            
 
             // stroke(255);
             // line(100,100,mouseX, mouseY);
@@ -116,7 +122,7 @@ public class UI extends PApplet
         {
             background(0);
             stroke(255,128,128);
-
+           
             
             // for(Button b: buttons)
             // {
@@ -131,7 +137,9 @@ public class UI extends PApplet
                 button3.render();
                 button4.render();
 
-                
+                stroke(255);
+                g.render();
+            
 
 
             }
@@ -200,6 +208,8 @@ public class UI extends PApplet
                 // button1.render();
 
             }
+
+            
             // when clock button is clicked.
             else if(set == 3)
             {
@@ -210,26 +220,26 @@ public class UI extends PApplet
                 int sec = second();
 
                 int ClockX = width - 805;
-                int ClockY = 450;
-
+                int ClockY = 440;
+                
                 float hourR;
                 float minutesR;
                 float secondR;
                 
-                int c = color(200, 130, 220);
+                //int c = color(200, 130, 220);
                 
                 String hour_display = nf(hr,2);
                 String min_display = nf(min,2);
                 String sec_display = nf(sec,2);
 
                 
-                int radius = min(width, height) / 2;
+                
+                int radius = min(width,height)/2;
+                secondR = (float) (radius * 0.4);
+                minutesR = (float) (radius * 0.25);
                 hourR = (float) (radius * 0.35);
-                secondR = (float)(radius * 0.4);
-                minutesR = (float)(radius * 0.35);
                
-                
-                
+               
                 
                 //outer circle
                 stroke(204,0,102);
@@ -262,13 +272,16 @@ public class UI extends PApplet
                 strokeWeight(5);
                 arc(ClockX, ClockY, 150, 150, radians(60), radians(360));
 
+                // Angles for sin() and cos() start at 3 o'clock;
+                // subtract HALF_PI to make them start at the top
                 float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
-                float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+                float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
                 float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
 
 
-                // seconds 
-                stroke(c);
+                
+                // seconds of clock
+                stroke(255);
                 strokeWeight(1);
                 line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
 
@@ -278,22 +291,20 @@ public class UI extends PApplet
                 strokeWeight(4);
                 line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
                 
-                // minutes 
+                // minutes of clock
                 beginShape(POINTS);
-                for (int i = 0; i < 360; i = i + 6) 
+                for (int a = 0; a < 360; a = a + 6) 
                 {
-                  float a = radians(i);
-                  float x = ClockX + cos(a) * secondR;
-                  float y = ClockY + sin(a) * secondR;
+                  float angle = radians(a);
+                  float x = ClockX + cos(angle) * secondR;
+                  float y = ClockY + sin(angle) * secondR;
                   vertex(x, y);
                 }
             
                 endShape();
                 
-                
                 textSize(14);
-                
-                text(hour_display+":" + min_display + ":" + sec_display, ClockX-10, ClockY+5);
+                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 60, ClockY + 5);
             }
             
         }
@@ -321,13 +332,13 @@ public class UI extends PApplet
         // }
 
         // map
-        if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
+        else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
             set = 2;
         }
 
         // clock
-        if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
+        else if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
         {
             set = 3;
         }

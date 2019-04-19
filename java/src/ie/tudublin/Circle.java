@@ -8,9 +8,9 @@ public class Circle extends UIElement
 {
 
 
-    int rotate = 1;
-    int rotate2 = 1;
-    int rotate3 = 1;
+    private int rotate = 1;
+    private int rotate2 = 1;
+    private int rotate3 = 1;
 
 
 

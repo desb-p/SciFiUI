@@ -1,16 +1,14 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
-import processing.core.PImage;
 
 public class Clock 
 {
 
-    UI ui;
-    float x;
-    float y;
-    float width;
-    float height;
+    private UI ui;
+    private float x;
+    private float y;
+    private float width;
+    private float height;
 
  
 
@@ -24,8 +22,7 @@ public class Clock
     }
     public void render()
     {
-    
         
-
+       
     }
 }
