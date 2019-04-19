@@ -231,17 +231,18 @@ public class UI extends PApplet
                 stroke(204,0,102);
                 noFill();
                 
-                arc(ClockX,ClockY, 120,120,0, 2 * PI);
+                arc(ClockX,ClockY, 100,100,0, 2 * PI);
+
                 
                 // inner circle
                 stroke(102,0,102);
                 strokeWeight(5);
-                arc(ClockX,ClockY, 125,125,0,2 * PI);
+                arc(ClockX,ClockY, 120,120,0,2 * PI);
 
                 //  small right arc
                 stroke(133,133,173);
                 strokeWeight(5);
-                arc(ClockX,ClockY, 135,135, radians(20), radians(40));
+                arc(ClockX,ClockY, 125,125, radians(20), radians(40));
                 
                 // smaller bottom arc 
                 stroke(120,115,120);
@@ -251,7 +252,7 @@ public class UI extends PApplet
                 // left arc
                 stroke(255,255,255);
                 strokeWeight(5);
-                arc(ClockX,ClockY,140,140, radians(105), radians(260));
+                arc(ClockX,ClockY,135,135, radians(105), radians(260));
 
                 // biggest arc
                 stroke(190,200,200);
@@ -260,15 +261,22 @@ public class UI extends PApplet
                 
                float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
                float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
-              
+               float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI; 
 
                // hands of the clock
                stroke(255,137,200);
                strokeWeight(1);
                line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
 
-                
+               strokeWeight(2);
+               line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
 
+               strokeWeight(5);
+               line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
+
+              
+
+              
 
             }
             
