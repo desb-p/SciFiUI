@@ -291,7 +291,9 @@ public class UI extends PApplet
                 endShape();
                 
                 
-
+                textSize(14);
+                
+                text(hour_display+":" + min_display + ":" + sec_display, ClockX-10, ClockY+5);
             }
             
         }
