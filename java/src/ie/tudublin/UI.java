@@ -28,6 +28,9 @@ public class UI extends PApplet
     Grid g;
   
 
+    int time;
+    int tTime = 3000;
+    int imageX = 0;
     
     int set = 0;
     boolean draw = false;
@@ -92,7 +95,6 @@ public class UI extends PApplet
         g = new Grid(this, width/2,500, width, height);
        
         
-        
     }
 
     
@@ -141,15 +143,17 @@ public class UI extends PApplet
 
                 stroke(255);
                 g.render();
+
+
+
             
 
 
             }
             // when map button clicked.
-            else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
+            else if(set == 2)
             {
 
-               
 
                 int x2 = width/2;
                 int y2 = height/2;
@@ -213,7 +217,7 @@ public class UI extends PApplet
 
             
             // when clock button is clicked.
-            else if(set == 2)
+            else if(set == 3)
             {
                
                
@@ -307,6 +311,12 @@ public class UI extends PApplet
                 
                 textSize(14);
                 text(hour_display+":" + min_display + ":" + sec_display, ClockX - 60, ClockY + 5);
+            }
+            // weapons
+            else if (set == 4)
+            {
+                
+
             }
             
         }
