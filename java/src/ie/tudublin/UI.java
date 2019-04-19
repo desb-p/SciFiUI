@@ -7,12 +7,13 @@ import processing.core.PImage;
 public class UI extends PApplet
 {
     Button startButton;
-    // Button button1;
-    // Button button2;
-    // Button button3;
-    // Button button4; 
 
-    ArrayList<Button>buttons = new ArrayList<>();
+    Button button1;
+    Button button2;
+    Button button3;
+    Button button4; 
+
+    //ArrayList<Button>buttons = new ArrayList<>();
 
     PImage Mockingjay;
     PImage Panem;
@@ -59,11 +60,15 @@ public class UI extends PApplet
         // Buttons
         startButton = new Button(this, 50, 100, 100, 50, "Start");
 
-        buttons.add(new Button(this, 300, 200, 100, 50, "Map"));
-        buttons.add(new Button(this, 1000, 200, 100, 50, "Weapons"));
-        buttons.add(new Button(this, 300, 700, 100,50,  "Clock"));
-        buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
+        // buttons.add(new Button(this, 300, 200, 100, 50, "Map"));
+        // buttons.add(new Button(this, 1000, 200, 100, 50, "Weapons"));
+        // buttons.add(new Button(this, 300, 700, 100,50,  "Clock"));
+        // buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
 
+        button1 = new Button(this, 300, 200, 100, 50, "Map");
+        button2 = new Button(this, 1000, 200, 100, 50, "Info");
+        button3 = new Button(this, 300, 700, 100,50,  "Clock");
+        button4 = new Button(this, 1000, 700, 100, 50, "Exit");
         
       
         // Loading Images
@@ -86,9 +91,11 @@ public class UI extends PApplet
 
     public void draw()
     {
+        
         // When start button is clicked
         if(set == 0)
         {
+           
             background(0);
             fill(0);
             stroke(51,102,255);
@@ -96,11 +103,11 @@ public class UI extends PApplet
             rect(30,20, width - 50, height - 50); // x = 30, y = 20.
             rect(40,30, width - 70, height - 70);
             image(Mockingjay, 550, 180);
-            
             c.render();
 
-
-
+            // stroke(255);
+            // line(100,100,mouseX, mouseY);
+            // println(mouseX, mouseY);
         
         }
         // when buttons are clicked
@@ -110,13 +117,31 @@ public class UI extends PApplet
             stroke(255,128,128);
 
             
-            for(Button b: buttons)
-            {
-                b.render();
-            }
-            if(draw == true)
-            {
+            // stroke(255);
+            // line(100,100,mouseX, mouseY);
+            // println(mouseX, mouseY);
 
+
+            // for(Button b: buttons)
+            // {
+            //     b.render();
+            // }
+            // if(draw == true)
+            // {
+
+                
+                button1.render();
+                button2.render();
+                button3.render();
+                button4.render();
+
+                
+
+
+            }
+            // when map button clicked.
+            else if(set == 2)
+            {
                 int x2 = width/2;
                 int y2 = height/2;
                 int dot = 3;
@@ -128,7 +153,6 @@ public class UI extends PApplet
                 fill(255);
                 text("PANEM",x2-30,240);
                 stroke(255,0,0);
-                
 
                 pushMatrix();
                 translate(x2-200,y2-150);
@@ -174,13 +198,14 @@ public class UI extends PApplet
                 text("District 3", 270+dist,150);
 
                 popMatrix();
-            }
 
+            }
+            
         }
 
   
      
-    }
+  // }
 
     public void mousePressed()
     {
@@ -189,14 +214,20 @@ public class UI extends PApplet
             set = 1;
         }
 
-        for(int i =0; i < buttons.size();i++)
+        // for(int i =0; i < buttons.size();i++)
+        // {
+        //     Button b = buttons.get(i);
+        //     if(dist(mouseX,mouseY,b.getX(),b.getY()) < (b.getWidth())/2)
+        //     {
+        //         draw = true;
+        //     }
+        // }
+
+        if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
-            Button b = buttons.get(i);
-            if(dist(mouseX,mouseY,b.getX(),b.getY()) < (b.getWidth())/2)
-            {
-                draw = true;
-            }
+            set = 2;
         }
+
 
 
     }
