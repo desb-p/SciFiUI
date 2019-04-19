@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-import java.awt.Color;
+
 import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -204,79 +204,93 @@ public class UI extends PApplet
             else if(set == 3)
             {
                
-                int c = color(255, 137, 216);
+                
                 int hr = hour();
                 int min = minute();
                 int sec = second();
 
                 int ClockX = width - 805;
                 int ClockY = 450;
+
                 float hourR;
                 float minutesR;
                 float secondR;
                 
-               
+                int c = color(200, 130, 220);
                 
                 String hour_display = nf(hr,2);
                 String min_display = nf(min,2);
                 String sec_display = nf(sec,2);
+
                 
                 int radius = min(width, height) / 2;
-                secondR = (float) (radius * 0.4);
-                minutesR = (float) (radius * 0.35);
                 hourR = (float) (radius * 0.35);
+                secondR = (float)(radius * 0.4);
+                minutesR = (float)(radius * 0.35);
+               
+                
                 
                 
                 //outer circle
                 stroke(204,0,102);
                 noFill();
-                
-                arc(ClockX,ClockY, 100,100,0, 2 * PI);
+            
+                arc(ClockX, ClockY, 100, 100, 0, 2 * PI);
 
-                
                 // inner circle
-                stroke(102,0,102);
+                stroke(102, 0, 102);
                 strokeWeight(5);
-                arc(ClockX,ClockY, 120,120,0,2 * PI);
+                arc(ClockX, ClockY, 120, 120, 0, 2 * PI);
 
-                //  small right arc
-                stroke(133,133,173);
+                // small right arc
+                stroke(133, 133, 173);
                 strokeWeight(5);
-                arc(ClockX,ClockY, 125,125, radians(20), radians(40));
-                
-                // smaller bottom arc 
-                stroke(120,115,120);
+                arc(ClockX, ClockY, 125, 125, radians(20), radians(40));
+
+                // smaller bottom arc
+                stroke(120, 115, 120);
                 strokeWeight(5);
-                arc(ClockX,ClockY, 135,135, radians(50), radians(95));
+                arc(ClockX, ClockY, 135, 135, radians(50), radians(95));
 
                 // left arc
-                stroke(255,255,255);
+                stroke(255, 255, 255);
                 strokeWeight(5);
-                arc(ClockX,ClockY,135,135, radians(105), radians(260));
+                arc(ClockX, ClockY, 135, 135, radians(105), radians(260));
 
                 // biggest arc
-                stroke(190,200,200);
+                stroke(190, 200, 200);
                 strokeWeight(5);
-                arc(ClockX,ClockY,150,150,radians(60), radians(360));
+                arc(ClockX, ClockY, 150, 150, radians(60), radians(360));
+
+                float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
+                float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI;
+                float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
+
+
+                // seconds 
+                stroke(c);
+                strokeWeight(1);
+                line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
+
+                strokeWeight(2);
+                line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
+ 
+                strokeWeight(4);
+                line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
                 
-               float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
-               float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
-               float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI; 
-
-               // hands of the clock
-               stroke(255,137,200);
-               strokeWeight(1);
-               line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
-
-               strokeWeight(2);
-               line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
-
-               strokeWeight(5);
-               line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
-
-              
-
-              
+                // minutes 
+                beginShape(POINTS);
+                for (int i = 0; i < 360; i = i + 6) 
+                {
+                  float a = radians(i);
+                  float x = ClockX + cos(a) * secondR;
+                  float y = ClockY + sin(a) * secondR;
+                  vertex(x, y);
+                }
+            
+                endShape();
+                
+                
 
             }
             
@@ -286,6 +300,7 @@ public class UI extends PApplet
      
   // }
 
+   
     public void mousePressed()
     {
         // start 
