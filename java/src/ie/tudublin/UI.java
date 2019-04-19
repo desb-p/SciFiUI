@@ -215,44 +215,45 @@ public class UI extends PApplet
                 float minutesRadius;
                 float secondRadius;
                 
+               
                 
                 String hour_display = nf(hr,2);
                 String min_display = nf(min,2);
                 String sec_display = nf(sec,2);
                 
-                stroke(255);
-
                 int radius = min(width,height) / 2;
+
+                secondRadius = (float) (radius * 0.4);
                 hourRadius = (float) (radius * 0.35);
                 minutesRadius = (float) (radius * 0.35);
-                secondRadius = (float) (radius * 0.4);
+                
                 
                 //outer circle
-                stroke(255,137,216);
+                stroke(255,98,203);
                 noFill();
                 arc(ClockX,ClockY, 120,120,0, 2 * PI);
                 
                 // inner circle
-                stroke(157,35,117);
+                stroke(130,0,120);
                 strokeWeight(5);
                 arc(ClockX,ClockY, 125,125,0,2 * PI);
 
-                // right outer circle
-                stroke(116,112,115);
+                //  small right arc
+                stroke(120,115,115);
                 strokeWeight(5);
                 arc(ClockX,ClockY, 135,135, radians(20), radians(40));
                 
-                // bottom outer circle 
+                // smaller bottom arc 
                 stroke(120,48,150);
                 strokeWeight(5);
                 arc(ClockX,ClockY, 135,135, radians(50), radians(95));
 
-                // left outer circle
+                // left arc
                 stroke(100,106,170);
                 strokeWeight(5);
-                arc(ClockX,ClockY,135,135, radians(105), radians(260));
+                arc(ClockX,ClockY,140,140, radians(105), radians(260));
 
-                
+                // biggest arc
                 stroke(190,200,200);
                 strokeWeight(5);
                 arc(ClockX,ClockY,150,150,radians(60), radians(360));
