@@ -31,7 +31,7 @@ public class Grid
         {
             for(int j = 1; j < row; j++)
             {
-                ui.fill(255,255,255);
+                ui.fill(255);
                 ui.ellipse(i * (width/col), j * (height/row), 1 , 1);
             }
         }

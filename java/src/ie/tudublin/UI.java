@@ -26,6 +26,7 @@ public class UI extends PApplet
 
     Circle c;
     Grid g;
+  
 
     
     int set = 0;
@@ -89,6 +90,7 @@ public class UI extends PApplet
     
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
+       
         
         
     }
@@ -144,7 +146,7 @@ public class UI extends PApplet
 
             }
             // when map button clicked.
-            else if(set == 2)
+            else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
             {
 
                
@@ -211,10 +213,10 @@ public class UI extends PApplet
 
             
             // when clock button is clicked.
-            else if(set == 3)
+            else if(set == 2)
             {
                
-                
+               
                 int hr = hour();
                 int min = minute();
                 int sec = second();
@@ -257,30 +259,30 @@ public class UI extends PApplet
                 strokeWeight(5);
                 arc(ClockX, ClockY, 125, 125, radians(20), radians(40));
 
-                // smaller bottom arc
+                // // smaller bottom arc
                 stroke(120, 115, 120);
                 strokeWeight(5);
                 arc(ClockX, ClockY, 135, 135, radians(50), radians(95));
 
-                // left arc
+                // // left arc
                 stroke(255, 255, 255);
                 strokeWeight(5);
                 arc(ClockX, ClockY, 135, 135, radians(105), radians(260));
 
-                // biggest arc
+                // // biggest arc
                 stroke(190, 200, 200);
                 strokeWeight(5);
                 arc(ClockX, ClockY, 150, 150, radians(60), radians(360));
 
-                // Angles for sin() and cos() start at 3 o'clock;
-                // subtract HALF_PI to make them start at the top
+                // // Angles for sin() and cos() start at 3 o'clock;
+                // // subtract HALF_PI to make them start at the top
                 float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
                 float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
                 float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
 
 
                 
-                // seconds of clock
+                // // seconds of clock
                 stroke(255);
                 strokeWeight(1);
                 line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
@@ -291,7 +293,7 @@ public class UI extends PApplet
                 strokeWeight(4);
                 line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
                 
-                // minutes of clock
+                // // minutes of clock
                 beginShape(POINTS);
                 for (int a = 0; a < 360; a = a + 6) 
                 {
