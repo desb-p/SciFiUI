@@ -211,9 +211,9 @@ public class UI extends PApplet
 
                 int ClockX = width - 805;
                 int ClockY = 450;
-                float hourRadius;
-                float minutesRadius;
-                float secondRadius;
+                float hourR;
+                float minutesR;
+                float secondR;
                 
                
                 
@@ -221,35 +221,35 @@ public class UI extends PApplet
                 String min_display = nf(min,2);
                 String sec_display = nf(sec,2);
                 
-                int radius = min(width,height) / 2;
-
-                secondRadius = (float) (radius * 0.4);
-                hourRadius = (float) (radius * 0.35);
-                minutesRadius = (float) (radius * 0.35);
+                int radius = min(width, height) / 2;
+                secondR = (float) (radius * 0.4);
+                minutesR = (float) (radius * 0.35);
+                hourR = (float) (radius * 0.35);
                 
                 
                 //outer circle
-                stroke(255,98,203);
+                stroke(204,0,102);
                 noFill();
+                
                 arc(ClockX,ClockY, 120,120,0, 2 * PI);
                 
                 // inner circle
-                stroke(130,0,120);
+                stroke(102,0,102);
                 strokeWeight(5);
                 arc(ClockX,ClockY, 125,125,0,2 * PI);
 
                 //  small right arc
-                stroke(120,115,115);
+                stroke(133,133,173);
                 strokeWeight(5);
                 arc(ClockX,ClockY, 135,135, radians(20), radians(40));
                 
                 // smaller bottom arc 
-                stroke(120,48,150);
+                stroke(120,115,120);
                 strokeWeight(5);
                 arc(ClockX,ClockY, 135,135, radians(50), radians(95));
 
                 // left arc
-                stroke(100,106,170);
+                stroke(255,255,255);
                 strokeWeight(5);
                 arc(ClockX,ClockY,140,140, radians(105), radians(260));
 
@@ -257,7 +257,19 @@ public class UI extends PApplet
                 stroke(190,200,200);
                 strokeWeight(5);
                 arc(ClockX,ClockY,150,150,radians(60), radians(360));
-               
+                
+               float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
+               float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
+              
+
+               // hands of the clock
+               stroke(255,137,200);
+               strokeWeight(1);
+               line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
+
+                
+
+
             }
             
         }
