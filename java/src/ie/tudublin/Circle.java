@@ -13,14 +13,11 @@ public class Circle extends UIElement
     private int rotate3 = 1;
 
 
-
-    
     public Circle (float x, float y, PApplet UI)
     {
         super(x, y, UI);
         
     }
-
 
 
     public void render()
