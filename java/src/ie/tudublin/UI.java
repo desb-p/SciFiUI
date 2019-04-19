@@ -1,5 +1,6 @@
 package ie.tudublin;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -117,11 +118,6 @@ public class UI extends PApplet
             stroke(255,128,128);
 
             
-            // stroke(255);
-            // line(100,100,mouseX, mouseY);
-            // println(mouseX, mouseY);
-
-
             // for(Button b: buttons)
             // {
             //     b.render();
@@ -143,7 +139,7 @@ public class UI extends PApplet
             else if(set == 2)
             {
 
-            
+               
 
                 int x2 = width/2;
                 int y2 = height/2;
@@ -201,11 +197,66 @@ public class UI extends PApplet
 
                 popMatrix();
 
+                // button1.render();
+
             }
             // when clock button is clicked.
             else if(set == 3)
             {
+               
+                int c = color(255, 137, 216);
+                int hr = hour();
+                int min = minute();
+                int sec = second();
 
+                int ClockX = width - 805;
+                int ClockY = 450;
+                float hourRadius;
+                float minutesRadius;
+                float secondRadius;
+                
+                
+                String hour_display = nf(hr,2);
+                String min_display = nf(min,2);
+                String sec_display = nf(sec,2);
+                
+                stroke(255);
+
+                int radius = min(width,height) / 2;
+                hourRadius = (float) (radius * 0.35);
+                minutesRadius = (float) (radius * 0.35);
+                secondRadius = (float) (radius * 0.4);
+                
+                //outer circle
+                stroke(255,137,216);
+                noFill();
+                arc(ClockX,ClockY, 120,120,0, 2 * PI);
+                
+                // inner circle
+                stroke(157,35,117);
+                strokeWeight(5);
+                arc(ClockX,ClockY, 125,125,0,2 * PI);
+
+                // right outer circle
+                stroke(116,112,115);
+                strokeWeight(5);
+                arc(ClockX,ClockY, 135,135, radians(20), radians(40));
+                
+                // bottom outer circle 
+                stroke(120,48,150);
+                strokeWeight(5);
+                arc(ClockX,ClockY, 135,135, radians(50), radians(95));
+
+                // left outer circle
+                stroke(100,106,170);
+                strokeWeight(5);
+                arc(ClockX,ClockY,135,135, radians(105), radians(260));
+
+                
+                stroke(190,200,200);
+                strokeWeight(5);
+                arc(ClockX,ClockY,150,150,radians(60), radians(360));
+               
             }
             
         }
@@ -236,6 +287,15 @@ public class UI extends PApplet
         {
             set = 2;
         }
+
+        // clock
+        if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
+        {
+            set = 3;
+        }
+
+        
+       
 
         
 
