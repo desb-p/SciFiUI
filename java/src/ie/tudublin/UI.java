@@ -66,7 +66,7 @@ public class UI extends PApplet
         // buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
 
         button1 = new Button(this, 300, 200, 100, 50, "Map");
-        button2 = new Button(this, 1000, 200, 100, 50, "Info");
+        button2 = new Button(this, 1000, 200, 100, 50, "Weapons");
         button3 = new Button(this, 300, 700, 100,50,  "Clock");
         button4 = new Button(this, 1000, 700, 100, 50, "Exit");
         
@@ -142,13 +142,16 @@ public class UI extends PApplet
             // when map button clicked.
             else if(set == 2)
             {
+
+            
+
                 int x2 = width/2;
                 int y2 = height/2;
                 int dot = 3;
                 int dist = 3;
 
             
-                image(Panem,width/2-200,height/2-200,400,400);
+                image(Panem,width/2-250,height/2-200,400,400);
                 
                 fill(255);
                 text("PANEM",x2-30,240);
@@ -157,47 +160,51 @@ public class UI extends PApplet
                 pushMatrix();
                 translate(x2-200,y2-150);
 
-
-                ellipse(95,15,dot,dot);
-                text("District 7", 105+dist,25);
+                ellipse(50,15,dot,dot);
+                text("District 7", 70+dist,25);
 
                 ellipse(105,50,dot,dot);
                 text("District 1", 110+dist,55);
 
-                ellipse(60,70,dot,dot);
-                text("District 4", 65+dist,75);
+                ellipse(25,70,dot,dot);
+                text("District 4", 35+dist,80);
 
-                ellipse(105,87,dot,dot);
-                text("Capitol", 110+dist,95);
+                ellipse(80,87,dot,dot);
+                text("Capitol", 90+dist,95);
 
-                ellipse(220,100,dot,dot);
-                text("District 9", 210+dist,150);
+                ellipse(130,100,dot,dot);
+                text("District 9", 140+dist,110);
 
-                ellipse(150,120,dot,dot);
-                text("District 2", 135+dist,130);
+                ellipse(130,142,dot,dot);
+                text("District 2", 140+dist,152);
 
-                ellipse(67,120,dot,dot);
-                text("District 5", 75+dist,130);
+                ellipse(50,150,dot,dot);
+                text("District 5", 60+dist,160);
 
-                ellipse(140,205,dot,dot);
-                text("District 10", 150+dist,215);
+                ellipse(125,205,dot,dot);
+                text("District 10", 135+dist,215);
 
-                ellipse(260,230,dot,dot);
-                text("District 11", 270+dist,240);
+                ellipse(240,240,dot,dot);
+                text("District 11", 250+dist,250);
 
-                ellipse(290,210,dot,dot);
-                text("District 8", 280+dist,215);
+                ellipse(260,210,dot,dot);
+                text("District 8", 270+dist,220);
                 
-                ellipse(310,180,dot,dot);
-                text("District 12", 320+dist,190);
+                ellipse(280,180,dot,dot);
+                text("District 12", 290+dist,190);
 
-                ellipse(260,100,dot,dot);
-                text("District 6", 270+dist,110);
+                ellipse(250,100,dot,dot);
+                text("District 6", 260+dist,110);
 
-                ellipse(270,130,dot,dot);
-                text("District 3", 270+dist,150);
+                ellipse(251,130,dot,dot);
+                text("District 3", 261+dist,140);
 
                 popMatrix();
+
+            }
+            // when clock button is clicked.
+            else if(set == 3)
+            {
 
             }
             
@@ -209,6 +216,7 @@ public class UI extends PApplet
 
     public void mousePressed()
     {
+        // start 
         if(mouseX > 669 && mouseX < 768 && mouseY > 448 && mouseY < 550)
         {
             set = 1;
@@ -223,10 +231,15 @@ public class UI extends PApplet
         //     }
         // }
 
+        // map
         if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
             set = 2;
         }
+
+        
+
+
 
 
 
