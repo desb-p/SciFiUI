@@ -16,15 +16,15 @@ public class Weapons extends PApplet
         this.ui = ui;
         this.x = x;
         this.y = y;
-    
-        
+
+
     }
 
    public void render()
    {
-       
+
    }
 
 
-    
+
 }

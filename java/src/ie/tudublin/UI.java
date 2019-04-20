@@ -26,6 +26,7 @@ public class UI extends PApplet
 
     Circle c;
     Grid g;
+    Weapons weapon;
   
 
     int time;
@@ -84,16 +85,16 @@ public class UI extends PApplet
 
         Mockingjay = loadImage("mockingjay.jpeg");
         Panem = loadImage("map.png");
-        weapon1 = loadImage("axe.png");
-        weapon2 = loadImage("bowarrow.png");
-        weapon3 = loadImage("spear.png");
+        weapon1 = loadImage("axe.jpg");
+        weapon2 = loadImage("bowarrow.jpg");
+        weapon3 = loadImage("spear.jpg");
         weapon4 = loadImage("sword.jpg");
         weapon5 = loadImage("trident.jpg");
         
     
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
-       
+      
         
     }
 
@@ -143,9 +144,6 @@ public class UI extends PApplet
 
                 stroke(255);
                 g.render();
-
-
-
             
 
 
@@ -314,8 +312,25 @@ public class UI extends PApplet
             }
             // weapons
             else if (set == 4)
+
             {
-                
+                image(weapon1, 550, 0);
+            //     String[] file  = {
+            //         "axe.png", 
+            //         "bowarrow.png",
+            //         "spear.jpg",
+            //         "sword.jpg",
+            //         "trident.jpg"
+            //     };
+
+            //     PImage[] images = new PImage[file.length];
+
+            //     time = millis();
+
+            //     for(int i = 0; i<file.length; i++)
+            //     {
+            //         images[i] = loadImage(file[i]);
+            //     }
 
             }
             
@@ -326,7 +341,8 @@ public class UI extends PApplet
   // }
 
    
-    public void mousePressed()
+
+	public void mousePressed()
     {
         // start 
         if(mouseX > 669 && mouseX < 768 && mouseY > 448 && mouseY < 550)
@@ -344,19 +360,22 @@ public class UI extends PApplet
         // }
 
         // map
-        else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
+        if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
             set = 2;
         }
 
         // clock
-        else if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
+        if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
         {
             set = 3;
         }
 
-        
-       
+        // weapons
+       else if(mouseX > 949 && mouseX < 1050 && mouseY > 152 && mouseY < 252)
+       {
+           set = 4;
+       }
 
         
 
