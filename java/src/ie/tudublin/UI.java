@@ -28,10 +28,19 @@ public class UI extends PApplet
     Grid g;
     Weapons weapon;
   
+    String[] weapons = {
+        "axe.jpg", 
+        "bowarrow.jpg",
+        "spear.jpg",
+        "sword.jpg",
+        "trident.jpg"
 
+    };
+
+    PImage[] images = new PImage[weapons.length];
     int time;
-    int tTime = 3000;
-    int imageX = 0;
+    int Image = 0;
+    int totalTime = 300;
     
     int set = 0;
     boolean draw = false;
@@ -61,8 +70,6 @@ public class UI extends PApplet
         fullScreen();
 
 
-        
-
     }
 
     public void setup()
@@ -85,16 +92,23 @@ public class UI extends PApplet
 
         Mockingjay = loadImage("mockingjay.jpeg");
         Panem = loadImage("map.png");
-        weapon1 = loadImage("axe.jpg");
-        weapon2 = loadImage("bowarrow.jpg");
-        weapon3 = loadImage("spear.jpg");
-        weapon4 = loadImage("sword.jpg");
-        weapon5 = loadImage("trident.jpg");
+        // weapon1 = loadImage("axe.jpg");
+        // weapon2 = loadImage("bowarrow.jpg");
+        // weapon3 = loadImage("spear.jpg");
+        // weapon4 = loadImage("sword.jpg");
+        // weapon5 = loadImage("trident.jpg");
+
+        time = millis();
+
+        for(int i = 0; i < weapons.length; i++)
+        {
+            images[i] = loadImage(weapons[i]);
+        }
         
     
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
-      
+       
         
     }
 
@@ -209,8 +223,6 @@ public class UI extends PApplet
 
                 popMatrix();
 
-                // button1.render();
-
             }
 
             
@@ -314,24 +326,11 @@ public class UI extends PApplet
             else if (set == 4)
 
             {
-                image(weapon1, 550, 0);
-            //     String[] file  = {
-            //         "axe.png", 
-            //         "bowarrow.png",
-            //         "spear.jpg",
-            //         "sword.jpg",
-            //         "trident.jpg"
-            //     };
-
-            //     PImage[] images = new PImage[file.length];
-
-            //     time = millis();
-
-            //     for(int i = 0; i<file.length; i++)
-            //     {
-            //         images[i] = loadImage(file[i]);
-            //     }
-
+                background(0);
+                fill(0);
+                //image(weapon1, 550, 0);
+                //image(weapon1,width/2-250,height/2-200,400,400);
+                
             }
             
         }

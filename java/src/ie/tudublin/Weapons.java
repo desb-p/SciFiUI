@@ -1,30 +1,23 @@
 package ie.tudublin;
 
-
-import processing.core.PApplet;
-import processing.core.PFont;
-
-public class Weapons extends PApplet
+public class Weapons 
 {
-    PFont font;
-    private UI ui;
-    private float x;
-    private float y;
+    UI ui;
+    float x;
+    float y;
+    float width;
+    float height;
 
-    public Weapons(UI ui, float x, float y)
+
+    public Weapons(UI ui, float x, float width, float y,String weapons)
     {
         this.ui = ui;
         this.x = x;
         this.y = y;
+        this.width = width;
+
 
 
     }
-
-   public void render()
-   {
-
-   }
-
-
 
 }
