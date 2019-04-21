@@ -37,10 +37,25 @@ public class UI extends PApplet
 
     };
 
+    String[] childWeapons = {
+        "axe.jpg", 
+        "bowarrow.jpg",
+        "spear.jpg",
+        "sword.jpg",
+        "trident.jpg"
+    };
+
     PImage[] images = new PImage[weapons.length];
-    int time;
-    int Image = 0;
-    int totalTime = 300;
+    PImage[] childImages = new PImage[childWeapons.length];
+    int startTime;
+    int passedTime;
+    int waitTime;
+
+    int currImage = 0;
+    boolean showChildImg;
+    //int totalTime = 1000;
+
+
     
     int set = 0;
     boolean draw = false;
@@ -98,13 +113,18 @@ public class UI extends PApplet
         // weapon4 = loadImage("sword.jpg");
         // weapon5 = loadImage("trident.jpg");
 
-        time = millis();
 
         for(int i = 0; i < weapons.length; i++)
         {
             images[i] = loadImage(weapons[i]);
+            childImages[i] = loadImage(childWeapons[i]);
         }
         
+        showChildImg = false;
+        
+        startTime = millis();
+        passedTime = 0;
+        waitTime = 1050;
     
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
@@ -330,7 +350,31 @@ public class UI extends PApplet
                 fill(0);
                 //image(weapon1, 550, 0);
                 //image(weapon1,width/2-250,height/2-200,400,400);
-                
+                if (!showChildImg) 
+                {
+                    image(images[currImage], 0, 0, width, height);
+                }
+                else 
+                {
+                    image(childImages[currImage], 0, 0, width, height);
+                }
+
+                passedTime = millis() - startTime;
+
+                if (passedTime > waitTime) 
+                {
+                    currImage++;
+                    showChildImg = false;
+                    startTime = millis();
+                }
+
+
+                if (currImage>weapons.length-1)
+                {
+                    currImage = 0;
+                }
+
+
             }
             
         }
@@ -374,6 +418,7 @@ public class UI extends PApplet
        else if(mouseX > 949 && mouseX < 1050 && mouseY > 152 && mouseY < 252)
        {
            set = 4;
+           showChildImg = true;
        }
 
         
