@@ -23,6 +23,8 @@ public class UI extends PApplet
     PImage weapon3;
     PImage weapon4;
     PImage weapon5;
+    PImage bg;
+    
 
     Circle c;
     Grid g;
@@ -30,8 +32,8 @@ public class UI extends PApplet
   
     String[] weapons = {
         "axe.jpg", 
-        "bowarrow.jpg",
-        "spear.jpg",
+        "bowarrow.png",
+        "spear.png",
         "sword.jpg",
         "trident.jpg"
 
@@ -39,8 +41,8 @@ public class UI extends PApplet
 
     String[] childWeapons = {
         "axe.jpg", 
-        "bowarrow.jpg",
-        "spear.jpg",
+        "bowarrow.png",
+        "spear.png",
         "sword.jpg",
         "trident.jpg"
     };
@@ -107,6 +109,7 @@ public class UI extends PApplet
 
         Mockingjay = loadImage("mockingjay.jpeg");
         Panem = loadImage("map.png");
+        
         // weapon1 = loadImage("axe.jpg");
         // weapon2 = loadImage("bowarrow.jpg");
         // weapon3 = loadImage("spear.jpg");
@@ -118,9 +121,19 @@ public class UI extends PApplet
         {
             images[i] = loadImage(weapons[i]);
             childImages[i] = loadImage(childWeapons[i]);
+            bg = createImage(width,height,ARGB);
+
+            for(int x = 0; x < bg.width; x++)
+            {
+                for(int y = 0; y <bg.height; y++)
+                {
+                    bg.pixels[x+y * width] = color(200);
+                }
+            }
         }
         
         showChildImg = false;
+
         
         startTime = millis();
         passedTime = 0;
@@ -154,6 +167,8 @@ public class UI extends PApplet
             // stroke(255);
             // line(100,100,mouseX, mouseY);
             // println(mouseX, mouseY);
+           
+            
         
         }
         // when buttons are clicked
@@ -194,7 +209,7 @@ public class UI extends PApplet
 
             
                 image(Panem,width/2-250,height/2-200,400,400);
-                
+               
                 fill(255);
                 text("PANEM",x2-30,240);
                 stroke(255,0,0);
@@ -353,13 +368,16 @@ public class UI extends PApplet
                 if (!showChildImg) 
                 {
                     image(images[currImage], width/2-250, height/2-200, 400, 400);
-                    tint(0,0,255,100);
+                    blend(images[currImage], 0, 0, images[currImage].width,
+                    images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
                 }
                 else 
                 {
                     image(childImages[currImage], width/2-250, height/2-200, 400, 400);
-                    tint(0,0,255,100);
+                    blend(images[currImage], 0, 0, images[currImage].width,
+                    images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
                 }
+            }
 
                 passedTime = millis() - startTime;
 
@@ -377,9 +395,9 @@ public class UI extends PApplet
                 }
 
 
-            }
-            
         }
+            
+       // }
 
   
      
@@ -424,10 +442,6 @@ public class UI extends PApplet
        }
 
         
-
-
-
-
 
     }
 }
