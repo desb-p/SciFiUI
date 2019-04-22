@@ -346,17 +346,19 @@ public class UI extends PApplet
             else if (set == 4)
 
             {
-                background(0);
+                
                 fill(0);
                 //image(weapon1, 550, 0);
                 //image(weapon1,width/2-250,height/2-200,400,400);
                 if (!showChildImg) 
                 {
-                    image(images[currImage], 0, 0, width, height);
+                    image(images[currImage], width/2-250, height/2-200, 400, 400);
+                    tint(0,0,255,100);
                 }
                 else 
                 {
-                    image(childImages[currImage], 0, 0, width, height);
+                    image(childImages[currImage], width/2-250, height/2-200, 400, 400);
+                    tint(0,0,255,100);
                 }
 
                 passedTime = millis() - startTime;
