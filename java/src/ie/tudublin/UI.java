@@ -31,20 +31,20 @@ public class UI extends PApplet
     Weapons weapon;
   
     String[] weapons = {
-        "axe.jpg", 
+        "axe.png", 
         "bowarrow.png",
         "spear.png",
-        "sword.jpg",
-        "trident.jpg"
+        "sword.png",
+        "trident.png"
 
     };
 
     String[] childWeapons = {
-        "axe.jpg", 
+        "axe.png", 
         "bowarrow.png",
         "spear.png",
-        "sword.jpg",
-        "trident.jpg"
+        "sword.png",
+        "trident.png"
     };
 
     PImage[] images = new PImage[weapons.length];
@@ -121,15 +121,15 @@ public class UI extends PApplet
         {
             images[i] = loadImage(weapons[i]);
             childImages[i] = loadImage(childWeapons[i]);
-            bg = createImage(width,height,ARGB);
+            // bg = createImage(width,height,ARGB);
 
-            for(int x = 0; x < bg.width; x++)
-            {
-                for(int y = 0; y <bg.height; y++)
-                {
-                    bg.pixels[x+y * width] = color(200);
-                }
-            }
+            // for(int x = 0; x < bg.width; x++)
+            // {
+            //     for(int y = 0; y <bg.height; y++)
+            //     {
+            //         bg.pixels[x+y * width] = color(200);
+            //     }
+            // }
         }
         
         showChildImg = false;
@@ -361,21 +361,21 @@ public class UI extends PApplet
             else if (set == 4)
 
             {
-                
-                fill(0);
+                background(0);
+                //fill(0);
                 //image(weapon1, 550, 0);
                 //image(weapon1,width/2-250,height/2-200,400,400);
                 if (!showChildImg) 
                 {
                     image(images[currImage], width/2-250, height/2-200, 400, 400);
-                    blend(images[currImage], 0, 0, images[currImage].width,
-                    images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
+                    // blend(images[currImage], 0, 0, images[currImage].width,
+                    // images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
                 }
                 else 
                 {
                     image(childImages[currImage], width/2-250, height/2-200, 400, 400);
-                    blend(images[currImage], 0, 0, images[currImage].width,
-                    images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
+                    // blend(images[currImage], 0, 0, images[currImage].width,
+                    // images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
                 }
             }
 
