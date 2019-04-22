@@ -30,7 +30,8 @@ public class UI extends PApplet
     Grid g;
     Weapons weapon;
   
-    String[] weapons = {
+    String[] weapons = 
+    {
         "axe.png", 
         "bowarrow.png",
         "spear.png",
@@ -39,12 +40,23 @@ public class UI extends PApplet
 
     };
 
-    String[] childWeapons = {
+    String[] childWeapons = 
+    {
         "axe.png", 
         "bowarrow.png",
         "spear.png",
         "sword.png",
         "trident.png"
+    };
+
+    // description of the weapons 
+    String[] weaponDesc = 
+    {
+        "Name: Axe",
+        "Name: Bow and arrow ",
+        "Name: Spear",
+        "Name: Sword",
+        "Name : Trident",
     };
 
     PImage[] images = new PImage[weapons.length];
@@ -53,12 +65,12 @@ public class UI extends PApplet
     int passedTime;
     int waitTime;
 
+    int index = 0;
+
     int currImage = 0;
     boolean showChildImg;
     //int totalTime = 1000;
 
-
-    
     int set = 0;
     boolean draw = false;
 
@@ -121,16 +133,10 @@ public class UI extends PApplet
         {
             images[i] = loadImage(weapons[i]);
             childImages[i] = loadImage(childWeapons[i]);
-            // bg = createImage(width,height,ARGB);
-
-            // for(int x = 0; x < bg.width; x++)
-            // {
-            //     for(int y = 0; y <bg.height; y++)
-            //     {
-            //         bg.pixels[x+y * width] = color(200);
-            //     }
-            // }
+            
+            
         }
+
         
         showChildImg = false;
 
@@ -368,22 +374,21 @@ public class UI extends PApplet
                 if (!showChildImg) 
                 {
                     image(images[currImage], width/2-250, height/2-200, 400, 400);
-                    // blend(images[currImage], 0, 0, images[currImage].width,
-                    // images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
+                    text(weaponDesc[index],600,700);
                 }
                 else 
                 {
                     image(childImages[currImage], width/2-250, height/2-200, 400, 400);
-                    // blend(images[currImage], 0, 0, images[currImage].width,
-                    // images[currImage].height,mouseX,mouseY, images[currImage].width, images[currImage].height, DARKEST);
+                    text(weaponDesc[index],600,700);
                 }
-            }
-
+            
+                //text(weaponDesc[index],600,700);
                 passedTime = millis() - startTime;
 
                 if (passedTime > waitTime) 
                 {
                     currImage++;
+                    index++;
                     showChildImg = false;
                     startTime = millis();
                 }
@@ -394,7 +399,12 @@ public class UI extends PApplet
                     currImage = 0;
                 }
 
+                if(index > weaponDesc.length-1)
+                {
+                    index = 0;
+                }
 
+            }
         }
             
        // }
