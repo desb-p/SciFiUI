@@ -52,11 +52,11 @@ public class UI extends PApplet
     // description of the weapons 
     String[] weaponDesc = 
     {
-        "Name: Axe",
-        "Name: Bow and arrow ",
-        "Name: Spear",
-        "Name: Sword",
-        "Name : Trident",
+        "Axe : use to shape and cut wood.",
+        "Bow and Arrow ",
+        "Spear : may be sharpened or head of spear maybe be used for other materials such as stone, bone, metal.  ",
+        "Sword : for cutting or thrusting",
+        "Trident : mostly known as a weapon but also for spear fishing. Mainly used by Finiick",
     };
 
     PImage[] images = new PImage[weapons.length];
@@ -120,7 +120,7 @@ public class UI extends PApplet
         // Loading Images
 
         Mockingjay = loadImage("mockingjay.jpeg");
-        Panem = loadImage("map.png");
+        Panem = loadImage("map2.png");
         
         // weapon1 = loadImage("axe.jpg");
         // weapon2 = loadImage("bowarrow.jpg");
@@ -133,8 +133,7 @@ public class UI extends PApplet
         {
             images[i] = loadImage(weapons[i]);
             childImages[i] = loadImage(childWeapons[i]);
-            
-            
+
         }
 
         
@@ -181,6 +180,7 @@ public class UI extends PApplet
         else if (set == 1)
         {
             background(0);
+            //background(255,255,230);
             stroke(255,128,128);
            
             
@@ -296,8 +296,6 @@ public class UI extends PApplet
                 minutesR = (float) (radius * 0.25);
                 hourR = (float) (radius * 0.35);
                
-               
-                
                 //outer circle
                 stroke(204,0,102);
                 noFill();
@@ -334,7 +332,6 @@ public class UI extends PApplet
                 float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
                 float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
                 float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
-
 
                 
                 // // seconds of clock
@@ -409,11 +406,9 @@ public class UI extends PApplet
             
        // }
 
-  
      
   // }
 
-   
 
 	public void mousePressed()
     {
