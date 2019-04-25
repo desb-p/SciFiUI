@@ -142,7 +142,7 @@ public class UI extends PApplet
         
         startTime = millis();
         passedTime = 0;
-        waitTime = 1050;
+        waitTime = 3000;
     
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
