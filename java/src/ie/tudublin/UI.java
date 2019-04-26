@@ -29,6 +29,7 @@ public class UI extends PApplet
     Circle c;
     Grid g;
     Weapons weapon;
+ 
   
     String[] weapons = 
     {
@@ -73,6 +74,8 @@ public class UI extends PApplet
 
     int set = 0;
     boolean draw = false;
+
+    boolean hover;
 
     // boolean[] keys = new boolean[1024];
 
@@ -147,6 +150,9 @@ public class UI extends PApplet
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
        
+        hover = false;
+
+       
         
     }
 
@@ -166,7 +172,7 @@ public class UI extends PApplet
             rect(30,20, width - 50, height - 50); // x = 30, y = 20.
             rect(40,30, width - 70, height - 70);
             image(Mockingjay, 550, 180);
-            c.render();
+            c.render(); // draws Circle
             
 
             // stroke(255);
@@ -198,23 +204,26 @@ public class UI extends PApplet
                 button4.render();
 
                 stroke(255);
-                g.render();
+                g.render(); // Draws grid.
             
 
 
-            }
+        }
             // when map button clicked.
-            else if(set == 2)
-            {
+        else if(set == 2)
+        {
+
+            image(Panem, 400,400);
+            //map.render();
 
 
-                int x2 = width/2;
-                int y2 = height/2;
-                int dot = 3;
-                int dist = 3;
+            int x2 = width/2;
+            int y2 = height/2;
+            int dot = 3;
+            int dist = 3;
 
             
-                image(Panem,width/2-250,height/2-200,400,400);
+            image(Panem,width/2-250,height/2-200,400,400);
                
                 fill(255);
                 text("PANEM",x2-30,240);
@@ -232,7 +241,7 @@ public class UI extends PApplet
                 ellipse(25,70,dot,dot);
                 text("District 4", 35+dist,80);
 
-                ellipse(80,87,dot,dot);
+            //     ellipse(80,87,dot,dot);
                 text("Capitol", 90+dist,95);
 
                 ellipse(130,100,dot,dot);
@@ -264,12 +273,12 @@ public class UI extends PApplet
 
                 popMatrix();
 
-            }
+        }
 
             
             // when clock button is clicked.
-            else if(set == 3)
-            {
+        else if(set == 3)
+        {
                
                
                 int hr = hour();
@@ -360,11 +369,11 @@ public class UI extends PApplet
                 
                 textSize(14);
                 text(hour_display+":" + min_display + ":" + sec_display, ClockX - 10, ClockY + 5);
-            }
+        }
             // weapons
-            else if (set == 4)
+        else if (set == 4)
 
-            {
+        {
                 background(0);
                 //fill(0);
                 //image(weapon1, 550, 0);
@@ -402,8 +411,9 @@ public class UI extends PApplet
                     index = 0;
                 }
 
-            }
+           
         }
+    }
             
        // }
 
@@ -417,6 +427,7 @@ public class UI extends PApplet
         if(mouseX > 669 && mouseX < 768 && mouseY > 448 && mouseY < 550)
         {
             set = 1;
+            
         }
 
         // for(int i =0; i < buttons.size();i++)
@@ -429,13 +440,15 @@ public class UI extends PApplet
         // }
 
         // map
-        if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
+        else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
             set = 2;
+         
+            
         }
 
         // clock
-        if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
+        else if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
         {
             set = 3;
         }
@@ -450,4 +463,17 @@ public class UI extends PApplet
         
 
     }
+
+
+        // public void drawHover()
+        // {
+        //     stroke(255);
+        //     fill(255);
+        //     ellipse(button.getX(), button.getY(), button.getDiameter(), button.getDiameter)
+        //     if(button.hover)
+        //     {
+        //         text()
+        //     }
+        // }
+
 }
