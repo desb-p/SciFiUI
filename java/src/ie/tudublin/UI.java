@@ -3,6 +3,9 @@ package ie.tudublin;
 import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.data.Table;
+import processing.data.TableRow;
+
 
 public class UI extends PApplet
 {
@@ -14,7 +17,7 @@ public class UI extends PApplet
     Button button4; 
 
     //ArrayList<Button>buttons = new ArrayList<>();
-
+   
     PImage Mockingjay;
     PImage Panem;
 
@@ -76,6 +79,9 @@ public class UI extends PApplet
     boolean draw = false;
 
     boolean hover;
+
+    ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
+
 
     // boolean[] keys = new boolean[1024];
 
@@ -152,6 +158,7 @@ public class UI extends PApplet
        
         //hover = false;
 
+        loadWelcomeMessage();
        
         
     }
@@ -178,7 +185,11 @@ public class UI extends PApplet
             // stroke(255);
             // line(100,100,mouseX, mouseY);
             // println(mouseX, mouseY);
-           
+
+            for(int w = 0; w < WelcomeMsg.size(); w++)
+           {
+                drawWelcomeMessage();
+           }
             
         
         }
@@ -213,7 +224,7 @@ public class UI extends PApplet
         else if(set == 2)
         {
 
-            image(Panem, 400,400);
+            //image(Panem, 400,400);
             //map.render();
 
 
@@ -225,53 +236,53 @@ public class UI extends PApplet
             
             image(Panem,width/2-250,height/2-200,400,400);
                
-                fill(255);
-                text("PANEM",x2-30,240);
-                stroke(255,0,0);
+            fill(255);
+            text("PANEM",x2-30,240);
+            stroke(255,0,0);
 
-                pushMatrix();
-                translate(x2-200,y2-150);
+            pushMatrix();
+            translate(x2-200,y2-150);
 
-                ellipse(50,15,dot,dot);
-                text("District 7", 70+dist,25);
+            ellipse(50,15,dot,dot);
+            text("District 7", 70+dist,25);
 
-                ellipse(105,50,dot,dot);
-                text("District 1", 110+dist,55);
+            ellipse(105,50,dot,dot);
+            text("District 1", 110+dist,55);
 
-                ellipse(25,70,dot,dot);
-                text("District 4", 35+dist,80);
+            ellipse(25,70,dot,dot);
+            text("District 4", 35+dist,80);
 
-            //     ellipse(80,87,dot,dot);
-                text("Capitol", 90+dist,95);
+            ellipse(80,87,dot,dot);
+            text("Capitol", 90+dist,95);
 
-                ellipse(130,100,dot,dot);
-                text("District 9", 140+dist,110);
+            ellipse(130,100,dot,dot);
+            text("District 9", 140+dist,110);
 
-                ellipse(130,142,dot,dot);
-                text("District 2", 140+dist,152);
+            ellipse(130,142,dot,dot);
+            text("District 2", 140+dist,152);
 
-                ellipse(50,150,dot,dot);
-                text("District 5", 60+dist,160);
+            ellipse(50,150,dot,dot);
+            text("District 5", 60+dist,160);
 
-                ellipse(125,205,dot,dot);
-                text("District 10", 135+dist,215);
+            ellipse(125,205,dot,dot);
+            text("District 10", 135+dist,215);
 
-                ellipse(240,240,dot,dot);
-                text("District 11", 250+dist,250);
+            ellipse(240,240,dot,dot);
+            text("District 11", 250+dist,250);
 
-                ellipse(260,210,dot,dot);
-                text("District 8", 270+dist,220);
+             ellipse(260,210,dot,dot);
+            text("District 8", 270+dist,220);
                 
-                ellipse(280,180,dot,dot);
-                text("District 12", 290+dist,190);
+            ellipse(280,180,dot,dot);
+            text("District 12", 290+dist,190);
 
-                ellipse(250,100,dot,dot);
-                text("District 6", 260+dist,110);
+            ellipse(250,100,dot,dot);
+            text("District 6", 260+dist,110);
 
-                ellipse(251,130,dot,dot);
-                text("District 3", 261+dist,140);
+            ellipse(251,130,dot,dot);
+            text("District 3", 261+dist,140);
 
-                popMatrix();
+            popMatrix();
 
         }
 
@@ -415,7 +426,7 @@ public class UI extends PApplet
                 {
                     if(key == 'b' || key == 'B')
                     {
-                        set = 0;
+                        set = 1;
                     }
                 }
                
@@ -486,5 +497,34 @@ public class UI extends PApplet
         //         text()
         //     }
         // }
+
+        public void loadWelcomeMessage()
+        {
+            //int welcome_index = 0;
+
+            Table table = loadTable("welcome.csv", "header");
+            for(TableRow row : table.rows())
+            {
+                Welcome msg = new Welcome(row);
+                 WelcomeMsg.add(msg);
+
+            }
+
+        }
+
+        public void drawWelcomeMessage()
+        {
+            for(Welcome msg : WelcomeMsg)
+            {
+                stroke(255);
+                fill(255);
+                textSize(20);
+                text(msg.getName(),100,150);
+                noFill();
+                noStroke();
+            }
+        }
+
+
 
 }
