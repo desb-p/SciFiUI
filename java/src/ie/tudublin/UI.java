@@ -52,11 +52,11 @@ public class UI extends PApplet
     // description of the weapons 
     String[] weaponDesc = 
     {
-        "Axe : use to shape and cut wood.",
-        "Bow and Arrow ",
-        "Spear : may be sharpened or head of spear maybe be used for other materials such as stone, bone, metal.  ",
-        "Sword : for cutting or thrusting",
-        "Trident : mostly known as a weapon but also for spear fishing. Mainly used by Finiick",
+        "Axe : Use to shape and cut wood.",
+        "Bow and Arrow : Most common weapon used. ",
+        "Spear : May be sharpened or head of spear maybe be used for other materials such as stone, bone, metal.",
+        "Sword : For cutting or thrusting.",
+        "Trident : Can also be used for spear fishing.",
     };
 
     PImage[] images = new PImage[weapons.length];
@@ -293,8 +293,8 @@ public class UI extends PApplet
                 
                 int radius = min(width,height)/2;
                 secondR = (float) (radius * 0.4);
-                minutesR = (float) (radius * 0.25);
-                hourR = (float) (radius * 0.35);
+                minutesR = (float) (radius * 0.40);
+                hourR = (float) (radius * 0.25);
                
                 //outer circle
                 stroke(204,0,102);
@@ -335,17 +335,19 @@ public class UI extends PApplet
 
                 
                 // // seconds of clock
-                stroke(255);
+                // stroke(255);
                 strokeWeight(1);
                 line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
 
-                strokeWeight(2);
+                strokeWeight(2); 
                 line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
  
                 strokeWeight(4);
                 line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
                 
-                // // minutes of clock
+                strokeWeight(3);
+
+                // minutes of clock - outline of clock shape
                 beginShape(POINTS);
                 for (int a = 0; a < 360; a = a + 6) 
                 {
@@ -354,11 +356,10 @@ public class UI extends PApplet
                   float y = ClockY + sin(angle) * secondR;
                   vertex(x, y);
                 }
-            
                 endShape();
                 
                 textSize(14);
-                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 60, ClockY + 5);
+                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 10, ClockY + 5);
             }
             // weapons
             else if (set == 4)
