@@ -111,7 +111,6 @@ public class UI extends PApplet
         // Use fullscreen instead of size to make your interface fullscreen
         fullScreen();
 
-
     }
 
     public void setup()
@@ -165,9 +164,6 @@ public class UI extends PApplet
 
         loadWelcomeMessage();
          
-        
-       
-        
     }
 
     
@@ -220,12 +216,31 @@ public class UI extends PApplet
                 stroke(255);
                 g.render(); // Draws grid.
 
+                 //Statistics Graph
+                 
+                float x = 800;
+                float y = 300;
+
+                noFill();
+                line(x+340,40,x+340,260);
+                line(x+340,260, x+560, 260);
+                text("STATISTICS", x+400, 280);
+                noFill();
+
+                line(x+340,40,x+340,260);
+                ellipse(x+380,230,5,5);
+                text("10%",x+390,230);
+
                 for(int w = 0; w < WelcomeMsg.size(); w++)
                 {
                      drawWelcomeMessage();
                 }
-                 
+
+               
             
+            
+            
+
 
         }
             // when map button clicked.
@@ -393,6 +408,7 @@ public class UI extends PApplet
                 endShape();
                 
                 textSize(14);
+                fill(255);
                 text(hour_display+":" + min_display + ":" + sec_display, ClockX - 10, ClockY + 5);
         }
             // weapons
