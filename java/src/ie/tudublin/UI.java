@@ -411,13 +411,8 @@ public class UI extends PApplet
                     index = 0;
                 }
 
-                if(keyPressed)
-                {
-                    if(key == 'b' || key == 'B')
-                    {
-                        set = 0;
-                    }
-                }
+                
+               
            
         }
     }
@@ -430,7 +425,7 @@ public class UI extends PApplet
 
 	public void mousePressed()
     {
-        // start 
+        // press start 
         if(mouseX > 669 && mouseX < 768 && mouseY > 448 && mouseY < 550)
         {
             set = 1;
@@ -446,28 +441,28 @@ public class UI extends PApplet
         //     }
         // }
 
-        // map
+        // press map
         else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
             set = 2;
-         
             
         }
 
-        // clock
+        // press clock
         else if(mouseX > 249 && mouseX < 350 && mouseY > 652 && mouseY < 753)
         {
             set = 3;
         }
 
-        // weapons
+        // press weapons
        else if(mouseX > 949 && mouseX < 1050 && mouseY > 152 && mouseY < 252)
        {
            set = 4;
            showChildImg = true;
        }
 
-       else if(mouseX > 949 && mouseX < 1050 && mouseY > 652 && mouseY < 753)
+       //press exit 
+       else if(mouseX > 950 && mouseX < 1050 && mouseY > 652 && mouseY < 753)
        {
            set = 0;
        }
