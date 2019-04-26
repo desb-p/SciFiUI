@@ -411,7 +411,13 @@ public class UI extends PApplet
                     index = 0;
                 }
 
-                
+                if(keyPressed)
+                {
+                    if(key == 'b' || key == 'B')
+                    {
+                        set = 0;
+                    }
+                }
                
            
         }
