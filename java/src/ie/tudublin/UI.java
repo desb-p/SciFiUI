@@ -150,7 +150,7 @@ public class UI extends PApplet
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
        
-        hover = false;
+        //hover = false;
 
        
         
@@ -411,6 +411,13 @@ public class UI extends PApplet
                     index = 0;
                 }
 
+                if(keyPressed)
+                {
+                    if(key == 'b' || key == 'B')
+                    {
+                        set = 0;
+                    }
+                }
            
         }
     }
@@ -460,7 +467,10 @@ public class UI extends PApplet
            showChildImg = true;
        }
 
-        
+       else if(mouseX > 949 && mouseX < 1050 && mouseY > 652 && mouseY < 753)
+       {
+           set = 0;
+       }
 
     }
 
