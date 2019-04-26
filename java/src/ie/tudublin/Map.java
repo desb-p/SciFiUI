@@ -27,6 +27,7 @@ public class Map
     {
         
         ui.image(panem, x, y, width,height );
+        
        
     }
 }

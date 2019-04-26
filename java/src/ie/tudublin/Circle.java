@@ -33,6 +33,7 @@ public class Circle extends UIElement
 
     ui.fill(255);
     ui.text("Start", x - 15, y + 10);
+   
 
     ui.noFill();
     ui.strokeWeight(4);

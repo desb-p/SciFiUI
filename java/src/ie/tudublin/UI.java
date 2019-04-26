@@ -32,6 +32,7 @@ public class UI extends PApplet
     Circle c;
     Grid g;
     Weapons weapon;
+    Welcome welcome;
  
   
     String[] weapons = 
@@ -82,6 +83,8 @@ public class UI extends PApplet
 
     ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
 
+    int w_index = 0;
+
 
     // boolean[] keys = new boolean[1024];
 
@@ -100,6 +103,7 @@ public class UI extends PApplet
     //     return keys[c] || keys [Character.toUpperCase(c)];
     // }
     
+   
 
     public void settings()
     {
@@ -156,9 +160,12 @@ public class UI extends PApplet
         c = new Circle(width/2, 500, this);
         g = new Grid(this, width/2,500, width, height);
        
+       
         //hover = false;
 
         loadWelcomeMessage();
+         
+        
        
         
     }
@@ -186,11 +193,7 @@ public class UI extends PApplet
             // line(100,100,mouseX, mouseY);
             // println(mouseX, mouseY);
 
-            for(int w = 0; w < WelcomeMsg.size(); w++)
-           {
-                drawWelcomeMessage();
-           }
-            
+           
         
         }
         // when buttons are clicked
@@ -208,7 +211,7 @@ public class UI extends PApplet
             // if(draw == true)
             // {
 
-                
+                fill(255);
                 button1.render();
                 button2.render();
                 button3.render();
@@ -216,8 +219,13 @@ public class UI extends PApplet
 
                 stroke(255);
                 g.render(); // Draws grid.
-            
 
+                for(int w = 0; w < WelcomeMsg.size(); w++)
+                {
+                     drawWelcomeMessage();
+                }
+                 
+            
 
         }
             // when map button clicked.
@@ -236,15 +244,21 @@ public class UI extends PApplet
             
             image(Panem,width/2-250,height/2-200,400,400);
                
-            fill(255);
+           
+           fill(255);
+            //noFill();
             text("PANEM",x2-30,240);
             stroke(255,0,0);
 
+            
             pushMatrix();
             translate(x2-200,y2-150);
+            fill(255);
+            
 
             ellipse(50,15,dot,dot);
             text("District 7", 70+dist,25);
+            
 
             ellipse(105,50,dot,dot);
             text("District 1", 110+dist,55);
@@ -514,15 +528,20 @@ public class UI extends PApplet
 
         public void drawWelcomeMessage()
         {
+            
             for(Welcome msg : WelcomeMsg)
             {
+                noFill();
                 stroke(255);
-                fill(255);
-                textSize(20);
-                text(msg.getName(),100,150);
+                fill(random(0,255));
+                textSize(15);
+                text(msg.getName(),700,850);
                 noFill();
                 noStroke();
+
             }
+
+              
         }
 
 

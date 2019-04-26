@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
+
 import processing.data.TableRow;
 
 public class Welcome
@@ -9,6 +9,7 @@ public class Welcome
     // PApplet UI;
 
     private String name;
+    
 
     // float x = width - 280;
 
