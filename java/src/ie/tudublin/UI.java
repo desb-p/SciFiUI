@@ -221,15 +221,40 @@ public class UI extends PApplet
                 float x = 800;
                 float y = 300;
 
-                noFill();
+                //noFill();
+               
                 line(x+340,40,x+340,260);
                 line(x+340,260, x+560, 260);
                 text("STATISTICS", x+400, 280);
-                noFill();
+                
+                text("80%",x+380,70);
 
-                line(x+340,40,x+340,260);
-                ellipse(x+380,230,5,5);
-                text("10%",x+390,230);
+                line(x+360,70,x+380,200); // move left, length up, move right,length down
+                ellipse(x+360,70,4,4); // position of dot, length, size of dot(x and y)
+
+
+                text("30%", x+380, 200);
+                line(x+380,200,x+410,90);
+                ellipse(x+380,200,4,4);
+
+                text("70%",x+430,90);
+                line(x+410,90,x+425,230);
+                ellipse(x+410,90,4,4);
+
+
+                line(x+425,230,x+440,170);
+                ellipse(x+425,230,4,4);
+                text("15%", x+440, 230);
+
+                line(x+440,170, x+470, 140);
+                ellipse(x+440, 170, 4,4);
+                text("40%", x+460, 170);
+
+
+                
+
+
+
 
                 for(int w = 0; w < WelcomeMsg.size(); w++)
                 {
