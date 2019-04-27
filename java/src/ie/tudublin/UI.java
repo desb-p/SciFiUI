@@ -9,26 +9,24 @@ import processing.data.TableRow;
 
 public class UI extends PApplet
 {
-    Button startButton;
+    ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
 
+    Button startButton;
     Button button1;
     Button button2;
     Button button3;
     Button button4; 
 
-    //ArrayList<Button>buttons = new ArrayList<>();
    
     PImage Mockingjay;
     PImage Panem;
-
     PImage weapon1;
     PImage weapon2;
     PImage weapon3;
     PImage weapon4;
     PImage weapon5;
-    PImage bg;
     
-
+    
     Circle c;
     Grid g;
     Weapons weapon;
@@ -81,29 +79,7 @@ public class UI extends PApplet
 
     boolean hover;
 
-    ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
 
-    int w_index = 0;
-
-
-    // boolean[] keys = new boolean[1024];
-
-    // public void keyPressed()
-    // {
-    //     keys[keyCode] = true;
-    // }
-    
-    // public void keyReleased()
-    // {
-    //     keys[keyCode] = false;
-    // }
-
-    // public boolean checkKey(int c)
-    // {
-    //     return keys[c] || keys [Character.toUpperCase(c)];
-    // }
-    
-   
 
     public void settings()
     {
@@ -134,12 +110,6 @@ public class UI extends PApplet
         Mockingjay = loadImage("mockingjay.jpeg");
         Panem = loadImage("map2.png");
         
-        // weapon1 = loadImage("axe.jpg");
-        // weapon2 = loadImage("bowarrow.jpg");
-        // weapon3 = loadImage("spear.jpg");
-        // weapon4 = loadImage("sword.jpg");
-        // weapon5 = loadImage("trident.jpg");
-
 
         for(int i = 0; i < weapons.length; i++)
         {
@@ -263,22 +233,12 @@ public class UI extends PApplet
 
 
 
-
-                
-
-
-
-
                 for(int w = 0; w < WelcomeMsg.size(); w++)
                 {
                      drawWelcomeMessage();
                 }
 
-               
-            
-            
-            
-
+        
 
         }
             // when map button clicked.
@@ -287,7 +247,6 @@ public class UI extends PApplet
 
             //image(Panem, 400,400);
             //map.render();
-
 
             int x2 = width/2;
             int y2 = height/2;
@@ -298,7 +257,7 @@ public class UI extends PApplet
             image(Panem,width/2-250,height/2-200,400,400);
                
            
-           fill(255);
+            fill(255);
             //noFill();
             text("PANEM",x2-30,240);
             stroke(255,0,0);
@@ -502,10 +461,7 @@ public class UI extends PApplet
         }
     }
             
-       // }
 
-     
-  // }
 
 
 	public void mousePressed()
