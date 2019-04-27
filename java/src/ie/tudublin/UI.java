@@ -225,30 +225,43 @@ public class UI extends PApplet
                
                 line(x+340,40,x+340,260);
                 line(x+340,260, x+560, 260);
-                text("STATISTICS", x+400, 280);
+                text("STATISTICS", x+450, 280);
                 
                 text("80%",x+380,70);
 
-                line(x+360,70,x+380,200); // move left, length up, move right,length down
+                line(x+360,70,x+380,200); // move left, length down, move right,length up
                 ellipse(x+360,70,4,4); // position of dot, length, size of dot(x and y)
 
 
-                text("30%", x+380, 200);
+                
                 line(x+380,200,x+410,90);
                 ellipse(x+380,200,4,4);
+                text("20%", x+400, 200);
 
-                text("70%",x+430,90);
+                text("75%",x+430,90);
                 line(x+410,90,x+425,230);
                 ellipse(x+410,90,4,4);
 
 
                 line(x+425,230,x+440,170);
                 ellipse(x+425,230,4,4);
-                text("15%", x+440, 230);
+                text("10%", x+440, 230);
 
                 line(x+440,170, x+470, 140);
                 ellipse(x+440, 170, 4,4);
                 text("40%", x+460, 170);
+
+                line(x+470,140,x+520,215);
+                ellipse(x+470,140,4,4);
+                text("50%",x+490,140);
+
+                line(x+520,215,x+540,60);
+                ellipse(x+520,215,4,4);
+                text("15%",x+540,215);
+                ellipse(x+540,60,4,4);
+                text("90%",x+560,60);
+
+
 
 
                 
