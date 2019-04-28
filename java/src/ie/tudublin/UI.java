@@ -406,7 +406,7 @@ public class UI extends PApplet
                 
                 textSize(14);
                 fill(255);
-                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 5, ClockY + 5);
+                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 6, ClockY + 6);
         }
             // weapons
         else if (set == 4)
