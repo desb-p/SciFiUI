@@ -338,8 +338,8 @@ public class UI extends PApplet
                 
                 
                 int radius = min(width,height)/2;
-                secondR = (float) (radius * 0.4);
-                minutesR = (float) (radius * 0.40);
+                secondR = (float) (radius * 0.35);
+                minutesR = (float) (radius * 0.35);
                 hourR = (float) (radius * 0.25);
                
                 //outer circle
