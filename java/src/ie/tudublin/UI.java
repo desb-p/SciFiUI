@@ -406,7 +406,7 @@ public class UI extends PApplet
                 
                 textSize(14);
                 fill(255);
-                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 10, ClockY + 5);
+                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 5, ClockY + 5);
         }
             // weapons
         else if (set == 4)
@@ -543,7 +543,7 @@ public class UI extends PApplet
             {
                 noFill();
                 stroke(255);
-                fill(random(0,255));
+                fill(random(0,255), random(0,255), random(0,255));
                 textSize(15);
                 text(msg.getName(),700,850);
                 noFill();
