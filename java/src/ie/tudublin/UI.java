@@ -5,9 +5,10 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.data.Table;
 import processing.data.TableRow;
+import ddf.minim.AudioInput;
+import ddf.minim.AudioPlayer;
+import ddf.minim.Minim;
 
-
-//import processing.sound.*;
 
 
 public class UI extends PApplet
@@ -16,6 +17,8 @@ public class UI extends PApplet
 
 
     Button startButton;
+
+    
     Button button1;
     Button button2;
     Button button3;
@@ -76,13 +79,15 @@ public class UI extends PApplet
 
     int currImage = 0;
     boolean showChildImg;
-    //int totalTime = 1000;
+  
 
     int set = 0;
     boolean draw = false;
 
-    boolean hover;
-
+    // sound.
+    AudioPlayer whistle;
+    Minim minum;
+    AudioInput ai;
 
 
     public void settings()
@@ -97,11 +102,6 @@ public class UI extends PApplet
     {
         // Buttons
         startButton = new Button(this, 50, 100, 100, 50, "Start");
-
-        // buttons.add(new Button(this, 300, 200, 100, 50, "Map"));
-        // buttons.add(new Button(this, 1000, 200, 100, 50, "Weapons"));
-        // buttons.add(new Button(this, 300, 700, 100,50,  "Clock"));
-        // buttons.add(new Button(this, 1000, 700, 100, 50, "Exit"));
 
         button1 = new Button(this, 300, 200, 100, 50, "Map");
         button2 = new Button(this, 1000, 200, 100, 50, "Weapons");
@@ -137,6 +137,10 @@ public class UI extends PApplet
         //hover = false;
 
         loadWelcomeMessage();
+
+        // sound
+        minum = new Minim(this);
+        whistle = minum.loadFile("whistle.mp3");
          
     }
 
@@ -169,17 +173,12 @@ public class UI extends PApplet
         // when buttons are clicked
         else if (set == 1)
         {
+            whistle.play();
             background(0);
             //background(255,255,230);
             stroke(255,128,128);
            
             
-            // for(Button b: buttons)
-            // {
-            //     b.render();
-            // }
-            // if(draw == true)
-            // {
 
                 fill(255);
                 button1.render();
@@ -191,7 +190,6 @@ public class UI extends PApplet
                 g.render(); // Draws grid.
 
                  //Statistics Graph
-                 
                 float x = 800;
                 float y = 300;
 
@@ -436,17 +434,6 @@ public class UI extends PApplet
 
     }
 
-
-        // public void drawHover()
-        // {
-        //     stroke(255);
-        //     fill(255);
-        //     ellipse(button.getX(), button.getY(), button.getDiameter(), button.getDiameter)
-        //     if(button.hover)
-        //     {
-        //         text()
-        //     }
-        // }
 
         public void Clock()
         {
