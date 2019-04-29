@@ -7,6 +7,9 @@ import processing.data.Table;
 import processing.data.TableRow;
 
 
+//import processing.sound.*;
+
+
 public class UI extends PApplet
 {
     ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
@@ -312,11 +315,13 @@ public class UI extends PApplet
 
         }
 
+
             
             // when clock button is clicked.
         else if(set == 3)
         {
                
+                background(0);
                
                 int hr = hour();
                 int min = minute();
@@ -536,6 +541,8 @@ public class UI extends PApplet
 
         }
 
+        float wx = 0;
+
         public void drawWelcomeMessage()
         {
             
@@ -545,14 +552,20 @@ public class UI extends PApplet
                 stroke(255);
                 fill(random(0,255), random(0,255), random(0,255));
                 textSize(15);
-                text(msg.getName(),700,850);
+                text(msg.getName(),wx,850);
                 noFill();
                 noStroke();
 
             }
-
+            wx+=10;
+            if (wx > width + 100)
+            {
+                wx = 0;
+            }
               
         }
+
+        
 
 
 
