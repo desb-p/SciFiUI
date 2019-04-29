@@ -14,6 +14,7 @@ public class UI extends PApplet
 {
     ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
 
+
     Button startButton;
     Button button1;
     Button button2;
@@ -321,97 +322,17 @@ public class UI extends PApplet
         else if(set == 3)
         {
                
-                background(0);
-               
-                int hr = hour();
-                int min = minute();
-                int sec = second();
+               background(0);
+               Clock();
 
-                int ClockX = width - 805;
-                int ClockY = 440;
-                
-                float hourR;
-                float minutesR;
-                float secondR;
-                
-                //int c = color(200, 130, 220);
-                
-                String hour_display = nf(hr,2);
-                String min_display = nf(min,2);
-                String sec_display = nf(sec,2);
-
-                
-                
-                int radius = min(width,height)/2;
-                secondR = (float) (radius * 0.35);
-                minutesR = (float) (radius * 0.35);
-                hourR = (float) (radius * 0.25);
-               
-                //outer circle
-                stroke(204,0,102);
-                noFill();
-            
-                arc(ClockX, ClockY, 100, 100, 0, 2 * PI);
-
-                // inner circle
-                stroke(102, 0, 102);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 120, 120, 0, 2 * PI);
-
-                // small right arc
-                stroke(133, 133, 173);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 125, 125, radians(20), radians(40));
-
-                // // smaller bottom arc
-                stroke(120, 115, 120);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 135, 135, radians(50), radians(95));
-
-                // // left arc
-                stroke(255, 255, 255);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 135, 135, radians(105), radians(260));
-
-                // // biggest arc
-                stroke(190, 200, 200);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 150, 150, radians(60), radians(360));
-
-                // // Angles for sin() and cos() start at 3 o'clock;
-                // // subtract HALF_PI to make them start at the top
-                float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
-                float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
-                float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
-
-                
-                // // seconds of clock
-                // stroke(255);
-                strokeWeight(1);
-                line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
-
-                strokeWeight(2); 
-                line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
- 
-                strokeWeight(4);
-                line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
-                
-                strokeWeight(3);
-
-                // minutes of clock - outline of clock shape
-                beginShape(POINTS);
-                for (int a = 0; a < 360; a = a + 6) 
+               if(keyPressed)
                 {
-                  float angle = radians(a);
-                  float x = ClockX + cos(angle) * secondR;
-                  float y = ClockY + sin(angle) * secondR;
-                  vertex(x, y);
+                    if(key == 'b' || key == 'B')
+                    {
+                        set = 1;
+                    }
                 }
-                endShape();
                 
-                textSize(14);
-                fill(255);
-                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 6, ClockY + 6);
         }
             // weapons
         else if (set == 4)
@@ -526,6 +447,99 @@ public class UI extends PApplet
         //         text()
         //     }
         // }
+
+        public void Clock()
+        {
+            int hr = hour();
+                int min = minute();
+                int sec = second();
+
+                int ClockX = width - 805;
+                int ClockY = 440;
+                
+                float hourR;
+                float minutesR;
+                float secondR;
+                
+                //int c = color(200, 130, 220);
+                
+                String hour_display = nf(hr,2);
+                String min_display = nf(min,2);
+                String sec_display = nf(sec,2);
+
+                
+                
+                int radius = min(width,height)/2;
+                secondR = (float) (radius * 0.35);
+                minutesR = (float) (radius * 0.35);
+                hourR = (float) (radius * 0.25);
+               
+                //outer circle
+                stroke(204,0,102);
+                noFill();
+            
+                arc(ClockX, ClockY, 100, 100, 0, 2 * PI);
+
+                // inner circle
+                stroke(102, 0, 102);
+                strokeWeight(5);
+                arc(ClockX, ClockY, 120, 120, 0, 2 * PI);
+
+                // small right arc
+                stroke(133, 133, 173);
+                strokeWeight(5);
+                arc(ClockX, ClockY, 125, 125, radians(20), radians(40));
+
+                // // smaller bottom arc
+                stroke(120, 115, 120);
+                strokeWeight(5);
+                arc(ClockX, ClockY, 135, 135, radians(50), radians(95));
+
+                // // left arc
+                stroke(255, 255, 255);
+                strokeWeight(5);
+                arc(ClockX, ClockY, 135, 135, radians(105), radians(260));
+
+                // // biggest arc
+                stroke(190, 200, 200);
+                strokeWeight(5);
+                arc(ClockX, ClockY, 150, 150, radians(60), radians(360));
+
+                // // Angles for sin() and cos() start at 3 o'clock;
+                // // subtract HALF_PI to make them start at the top
+                float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
+                float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
+                float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
+
+                
+                // // seconds of clock
+                // stroke(255);
+                strokeWeight(1);
+                line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
+
+                strokeWeight(2); 
+                line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
+ 
+                strokeWeight(4);
+                line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
+                
+                strokeWeight(3);
+
+                // minutes of clock - outline of clock shape
+                beginShape(POINTS);
+                for (int a = 0; a < 360; a = a + 6) 
+                {
+                  float angle = radians(a);
+                  float x = ClockX + cos(angle) * secondR;
+                  float y = ClockY + sin(angle) * secondR;
+                  vertex(x, y);
+                }
+                endShape();
+                
+                textSize(14);
+                fill(255);
+                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 6, ClockY + 6);
+        }
 
         public void loadWelcomeMessage()
         {
