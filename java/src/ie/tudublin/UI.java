@@ -450,7 +450,7 @@ public class UI extends PApplet
 
         public void Clock()
         {
-            int hr = hour();
+                int hr = hour();
                 int min = minute();
                 int sec = second();
 
@@ -539,6 +539,14 @@ public class UI extends PApplet
                 textSize(14);
                 fill(255);
                 text(hour_display+":" + min_display + ":" + sec_display, ClockX - 6, ClockY + 6);
+
+                if(keyPressed)
+                {
+                    if(key == 'b' || key == 'B')
+                    {
+                        set = 1;
+                    }
+                }
         }
 
         public void loadWelcomeMessage()
