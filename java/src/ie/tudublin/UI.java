@@ -14,6 +14,7 @@ import ddf.minim.Minim;
 public class UI extends PApplet
 {
     ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
+    ArrayList<Map> M  = new ArrayList<Map>();
 
 
     Button startButton;
@@ -83,6 +84,7 @@ public class UI extends PApplet
 
     int set = 0;
     boolean draw = false;
+    boolean hover = false;
 
     // sound.
     AudioPlayer whistle;
@@ -141,14 +143,168 @@ public class UI extends PApplet
         // sound
         minum = new Minim(this);
         whistle = minum.loadFile("whistle.mp3");
-         
+
+       
+        Map coord1 = new Map(this, 50,15, width, height, Panem, mouseX, mouseY);
+        M.add(coord1);
+
+
+        Map coord2 = new Map(this, 105,50, width, height, Panem, mouseX, mouseY);
+        M.add(coord2);
+
+        Map coord3 = new Map(this, 25,70, width, height, Panem, mouseX, mouseY);
+        M.add(coord3);
+
+
+
+
     }
+
+    public void Clock()
+    {
+            int hr = hour();
+            int min = minute();
+            int sec = second();
+
+            int ClockX = width - 805;
+            int ClockY = 440;
+            
+            float hourR;
+            float minutesR;
+            float secondR;
+            
+            //int c = color(200, 130, 220);
+            
+            String hour_display = nf(hr,2);
+            String min_display = nf(min,2);
+            String sec_display = nf(sec,2);
+
+            
+            
+            int radius = min(width,height)/2;
+            secondR = (float) (radius * 0.35);
+            minutesR = (float) (radius * 0.35);
+            hourR = (float) (radius * 0.25);
+           
+            //outer circle
+            stroke(204,0,102);
+            noFill();
+        
+            arc(ClockX, ClockY, 100, 100, 0, 2 * PI);
+
+            // inner circle
+            stroke(102, 0, 102);
+            strokeWeight(5);
+            arc(ClockX, ClockY, 120, 120, 0, 2 * PI);
+
+            // small right arc
+            stroke(133, 133, 173);
+            strokeWeight(5);
+            arc(ClockX, ClockY, 125, 125, radians(20), radians(40));
+
+            // // smaller bottom arc
+            stroke(120, 115, 120);
+            strokeWeight(5);
+            arc(ClockX, ClockY, 135, 135, radians(50), radians(95));
+
+            // // left arc
+            stroke(255, 255, 255);
+            strokeWeight(5);
+            arc(ClockX, ClockY, 135, 135, radians(105), radians(260));
+
+            // // biggest arc
+            stroke(190, 200, 200);
+            strokeWeight(5);
+            arc(ClockX, ClockY, 150, 150, radians(60), radians(360));
+
+            // // Angles for sin() and cos() start at 3 o'clock;
+            // // subtract HALF_PI to make them start at the top
+            float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
+            float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
+            float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
+
+            
+            // // seconds of clock
+            // stroke(255);
+            strokeWeight(1);
+            line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
+
+            strokeWeight(2); 
+            line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
+
+            strokeWeight(4);
+            line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
+            
+            strokeWeight(3);
+
+            // minutes of clock - outline of clock shape
+            beginShape(POINTS);
+            for (int a = 0; a < 360; a = a + 6) 
+            {
+              float angle = radians(a);
+              float x = ClockX + cos(angle) * secondR;
+              float y = ClockY + sin(angle) * secondR;
+              vertex(x, y);
+            }
+            endShape();
+            
+            textSize(14);
+            fill(255);
+            text(hour_display+":" + min_display + ":" + sec_display, ClockX - 6, ClockY + 6);
+
+            if(keyPressed)
+            {
+                if(key == 'b' || key == 'B')
+                {
+                    set = 1;
+                }
+            }
+    }
+
+
+        public void loadWelcomeMessage()
+        {
+            //int welcome_index = 0;
+
+            Table table = loadTable("welcome.csv", "header");
+            for(TableRow row : table.rows())
+            {
+                Welcome msg = new Welcome(row);
+                WelcomeMsg.add(msg);
+
+            }
+
+         }
+
+        float wx = 0;
+
+        public void drawWelcomeMessage()
+        {
+        
+            for(Welcome msg : WelcomeMsg)
+            {
+                noFill();
+                stroke(255);
+                fill(random(0,255), random(0,255), random(0,255));
+                textSize(15);
+                text(msg.getName(),wx,850);
+                noFill();
+                noStroke();
+
+            }
+            wx+=5;
+                if (wx > width + 100)
+                {
+                    wx = 0;
+                }
+          
+        }
 
     
 
     public void draw()
     {
-        
+        println(mouseX,mouseY);
         // When start button is clicked
         if(set == 0)
         {
@@ -170,7 +326,8 @@ public class UI extends PApplet
            
         
         }
-        // when buttons are clicked
+        
+        // buttons page.
         else if (set == 1)
         {
             whistle.play();
@@ -193,18 +350,15 @@ public class UI extends PApplet
                 float x = 800;
                 float y = 300;
 
-                //noFill();
                
                 line(x+340,40,x+340,260);
                 line(x+340,260, x+560, 260);
-                text("STATISTICS", x+450, 280);
+                text("Kill Rate Statistics", x+450, 280);
                 
                 text("80%",x+380,70);
 
                 line(x+360,70,x+380,200); // move left, length down, move right,length up
                 ellipse(x+360,70,4,4); // position of dot, length, size of dot(x and y)
-
-
                 
                 line(x+380,200,x+410,90);
                 ellipse(x+380,200,4,4);
@@ -247,6 +401,16 @@ public class UI extends PApplet
         else if(set == 2)
         {
 
+            for(Map a : M)
+            {
+                a.render();
+            }
+
+            for(int i = 0; i < M.size(); i++)
+            {
+                M.get(i).hover(mouseX,mouseY);
+            }
+            
             //image(Panem, 400,400);
             //map.render();
 
@@ -257,7 +421,13 @@ public class UI extends PApplet
 
             
             image(Panem,width/2-250,height/2-200,400,400);
-               
+            
+            for(int i = 0; i < M.size(); i++)
+            {
+                M.get(i).hover(mouseX,mouseY);
+            }
+
+            //drawDistricts();
            
             fill(255);
             //noFill();
@@ -269,13 +439,13 @@ public class UI extends PApplet
             translate(x2-200,y2-150);
             fill(255);
             
-
+            
             ellipse(50,15,dot,dot);
             text("District 7", 70+dist,25);
             
-
             ellipse(105,50,dot,dot);
             text("District 1", 110+dist,55);
+            //println(mouseX,mouseY);
 
             ellipse(25,70,dot,dot);
             text("District 4", 35+dist,80);
@@ -315,77 +485,74 @@ public class UI extends PApplet
         }
 
 
-            
             // when clock button is clicked.
         else if(set == 3)
         {
                
-               background(0);
-               Clock();
+            background(0);
+            Clock();
 
-               if(keyPressed)
+            if(keyPressed)
+            {
+                if(key == 'b' || key == 'B')
                 {
-                    if(key == 'b' || key == 'B')
-                    {
                         set = 1;
-                    }
                 }
+            }
                 
         }
             // weapons
         else if (set == 4)
-
         {
-                background(0);
-                //fill(0);
-                //image(weapon1, 550, 0);
-                //image(weapon1,width/2-250,height/2-200,400,400);
-                if (!showChildImg) 
-                {
-                    image(images[currImage], width/2-250, height/2-200, 400, 400);
-                    text(weaponDesc[index],600,700);
-                }
-                else 
-                {
-                    image(childImages[currImage], width/2-250, height/2-200, 400, 400);
-                    text(weaponDesc[index],600,700);
-                }
+            background(0);
+            //fill(0);
+            //image(weapon1, 550, 0);
+            //image(weapon1,width/2-250,height/2-200,400,400);
+            if (!showChildImg) 
+            {
+                image(images[currImage], width/2-250, height/2-200, 400, 400);
+                text(weaponDesc[index],600,700);
+            }
+            else 
+            {
+                image(childImages[currImage], width/2-250, height/2-200, 400, 400);
+                text(weaponDesc[index],600,700);
+            }
             
-                //text(weaponDesc[index],600,700);
-                passedTime = millis() - startTime;
+            //text(weaponDesc[index],600,700);
+            passedTime = millis() - startTime;
 
-                if (passedTime > waitTime) 
+            if (passedTime > waitTime) 
+            {
+                currImage++;
+                index++;
+                showChildImg = false;
+                startTime = millis();
+            }
+
+
+            if (currImage>weapons.length-1)
+            {
+                currImage = 0;
+            }
+
+            if(index > weaponDesc.length-1)
+            {
+                index = 0;
+            }
+
+            if(keyPressed)
+            {
+                if(key == 'b' || key == 'B')
                 {
-                    currImage++;
-                    index++;
-                    showChildImg = false;
-                    startTime = millis();
+                    set = 1;
                 }
-
-
-                if (currImage>weapons.length-1)
-                {
-                    currImage = 0;
-                }
-
-                if(index > weaponDesc.length-1)
-                {
-                    index = 0;
-                }
-
-                if(keyPressed)
-                {
-                    if(key == 'b' || key == 'B')
-                    {
-                        set = 1;
-                    }
-                }
+            }
                
            
         }
     }
             
-
 
 
 	public void mousePressed()
@@ -435,146 +602,41 @@ public class UI extends PApplet
     }
 
 
-        public void Clock()
-        {
-                int hr = hour();
-                int min = minute();
-                int sec = second();
-
-                int ClockX = width - 805;
-                int ClockY = 440;
-                
-                float hourR;
-                float minutesR;
-                float secondR;
-                
-                //int c = color(200, 130, 220);
-                
-                String hour_display = nf(hr,2);
-                String min_display = nf(min,2);
-                String sec_display = nf(sec,2);
-
-                
-                
-                int radius = min(width,height)/2;
-                secondR = (float) (radius * 0.35);
-                minutesR = (float) (radius * 0.35);
-                hourR = (float) (radius * 0.25);
-               
-                //outer circle
-                stroke(204,0,102);
-                noFill();
-            
-                arc(ClockX, ClockY, 100, 100, 0, 2 * PI);
-
-                // inner circle
-                stroke(102, 0, 102);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 120, 120, 0, 2 * PI);
-
-                // small right arc
-                stroke(133, 133, 173);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 125, 125, radians(20), radians(40));
-
-                // // smaller bottom arc
-                stroke(120, 115, 120);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 135, 135, radians(50), radians(95));
-
-                // // left arc
-                stroke(255, 255, 255);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 135, 135, radians(105), radians(260));
-
-                // // biggest arc
-                stroke(190, 200, 200);
-                strokeWeight(5);
-                arc(ClockX, ClockY, 150, 150, radians(60), radians(360));
-
-                // // Angles for sin() and cos() start at 3 o'clock;
-                // // subtract HALF_PI to make them start at the top
-                float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;;
-                float m = map(minute() + norm(second(), 0, 60), 0, 60, 0, TWO_PI) - HALF_PI; 
-                float h = map(hour() + norm(minute(), 0, 60), 0, 24, 0, TWO_PI * 2) - HALF_PI;
-
-                
-                // // seconds of clock
-                // stroke(255);
-                strokeWeight(1);
-                line(ClockX, ClockY, ClockX + cos(s) * secondR, ClockY + sin(s) * secondR);
-
-                strokeWeight(2); 
-                line(ClockX, ClockY, ClockX + cos(m) * minutesR, ClockY + sin(m) * minutesR);
- 
-                strokeWeight(4);
-                line(ClockX, ClockY, ClockX + cos(h) * hourR, ClockY + sin(h) * hourR);
-                
-                strokeWeight(3);
-
-                // minutes of clock - outline of clock shape
-                beginShape(POINTS);
-                for (int a = 0; a < 360; a = a + 6) 
-                {
-                  float angle = radians(a);
-                  float x = ClockX + cos(angle) * secondR;
-                  float y = ClockY + sin(angle) * secondR;
-                  vertex(x, y);
-                }
-                endShape();
-                
-                textSize(14);
-                fill(255);
-                text(hour_display+":" + min_display + ":" + sec_display, ClockX - 6, ClockY + 6);
-
-                if(keyPressed)
-                {
-                    if(key == 'b' || key == 'B')
-                    {
-                        set = 1;
-                    }
-                }
-        }
-
-        public void loadWelcomeMessage()
-        {
-            //int welcome_index = 0;
-
-            Table table = loadTable("welcome.csv", "header");
-            for(TableRow row : table.rows())
-            {
-                Welcome msg = new Welcome(row);
-                 WelcomeMsg.add(msg);
-
-            }
-
-        }
-
-        float wx = 0;
-
-        public void drawWelcomeMessage()
-        {
-            
-            for(Welcome msg : WelcomeMsg)
-            {
-                noFill();
-                stroke(255);
-                fill(random(0,255), random(0,255), random(0,255));
-                textSize(15);
-                text(msg.getName(),wx,850);
-                noFill();
-                noStroke();
-
-            }
-            wx+=10;
-            if (wx > width + 100)
-            {
-                wx = 0;
-            }
-              
-        }
+        // public void drawDistricts()
+        // {
+        //     if(mouseX ==  571 && mouseY == 317)
+        //     {
+        //         background(0);
+        //     }
+        // }
 
         
+        // public void drawData()
+        // {
+            
+           
+
+        //     // for(Map a : M)
+        //     // {
+        //       ellipse(coord1.getX(),coord1.getY(),20,20);
+        //     // }
+
+        //     if(coord1.hover)
+        //     {
+        //         background(0);
+
+        //         if(coord1.getX() == 50)
+        //             {
+        //                 ellipse(coord1.getX(),coord1.getY(),20,20);
+        //             }
+        //     }
+             
+        // }
+
+        public void hover()
+        {
+
+        }
 
 
 
