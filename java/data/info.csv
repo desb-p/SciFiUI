@@ -1,11 +1,11 @@
-District,Tributes
-District 1, Cashmere & Gloss
-District 2, Cato & Clove
-District 3, Bettee & Wiress
-District 4, Finnick & Mags
-District 5, Victor & Foxface
-District 6, Finn & Fionna
-District 7, Johanna
-District 9, Steve & Soosan
-District 11, Thresh & Rue
-District 12, Peeta & Katniss
+District,locationX,locationY
+District 2,130,142
+District 3,251,130,
+District 4,25,70,
+District 5,50,150,
+District 6,250,100,
+District 7,50,15,
+District 9,130,100,
+District 11,240,240,
+District 12,280,180,
+Capitol,80,87,

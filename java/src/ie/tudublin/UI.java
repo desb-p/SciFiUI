@@ -13,13 +13,15 @@ import ddf.minim.Minim;
 
 public class UI extends PApplet
 {
+
     ArrayList<Welcome> WelcomeMsg = new ArrayList<Welcome>();
     ArrayList<Map> M  = new ArrayList<Map>();
+    //ArrayList<Map> District1 = new ArrayList<Map>();
+    ArrayList<District> districts = new ArrayList<District>();
 
 
     Button startButton;
 
-    
     Button button1;
     Button button2;
     Button button3;
@@ -39,6 +41,8 @@ public class UI extends PApplet
     Grid g;
     Weapons weapon;
     Welcome welcome;
+
+    Map district1;
  
   
     String[] weapons = 
@@ -88,7 +92,7 @@ public class UI extends PApplet
 
     // sound.
     AudioPlayer whistle;
-    Minim minum;
+    Minim minim;
     AudioInput ai;
 
 
@@ -141,8 +145,8 @@ public class UI extends PApplet
         loadWelcomeMessage();
 
         // sound
-        minum = new Minim(this);
-        whistle = minum.loadFile("whistle.mp3");
+        minim = new Minim(this);
+        whistle = minim.loadFile("whistle.mp3");
 
        
         Map coord1 = new Map(this, 50,15, width, height, Panem, mouseX, mouseY);
@@ -155,6 +159,7 @@ public class UI extends PApplet
         Map coord3 = new Map(this, 25,70, width, height, Panem, mouseX, mouseY);
         M.add(coord3);
 
+        loadDistricts();
 
 
 
@@ -274,7 +279,7 @@ public class UI extends PApplet
 
             }
 
-         }
+        }
 
         float wx = 0;
 
@@ -299,6 +304,45 @@ public class UI extends PApplet
                 }
           
         }
+
+        public void loadDistricts()
+        {
+            Table table = loadTable("info.csv", "header");
+            for(TableRow row : table.rows())
+            {
+                District dist = new District(row);
+                District lX = new District(row);
+                District lY = new District(row);
+                districts.add(dist);
+                districts.add(lX);
+                districts.add(lY);
+                
+            }
+        }
+
+
+        public void drawDistricts()
+        {
+            for(District d: districts)
+            {
+                noFill();
+                stroke(255);
+                fill(random(0,255), random(0,255), random(0,255));
+                
+                textSize(15);
+                text(d.getDistrict(),d.getLocationX(),d.getLocationY());
+                
+                //text(d.getlocationX(),100,500 );
+                ellipse(d.getLocationX(),d.getLocationY(),7,7);
+                
+                
+            
+                noFill();
+                noStroke();
+            }
+        }
+
+        
 
     
 
@@ -401,15 +445,15 @@ public class UI extends PApplet
         else if(set == 2)
         {
 
-            for(Map a : M)
-            {
-                a.render();
-            }
+            // for(Map a : M)
+            // {
+            //     a.render();
+            // }
 
-            for(int i = 0; i < M.size(); i++)
-            {
-                M.get(i).hover(mouseX,mouseY);
-            }
+            // for(int i = 0; i < M.size(); i++)
+            // {
+            //     M.get(i).hover(mouseX,mouseY);
+            // }
             
             //image(Panem, 400,400);
             //map.render();
@@ -422,10 +466,10 @@ public class UI extends PApplet
             
             image(Panem,width/2-250,height/2-200,400,400);
             
-            for(int i = 0; i < M.size(); i++)
-            {
-                M.get(i).hover(mouseX,mouseY);
-            }
+            // for(int i = 0; i < M.size(); i++)
+            // {
+            //     M.get(i).hover(mouseX,mouseY);
+            // }
 
             //drawDistricts();
            
@@ -434,53 +478,54 @@ public class UI extends PApplet
             text("PANEM",x2-30,240);
             stroke(255,0,0);
 
+            drawDistricts();
+            // pushMatrix();
+            // translate(x2-200,y2-150);
+            // fill(255);
+        
             
-            pushMatrix();
-            translate(x2-200,y2-150);
-            fill(255);
+            // ellipse(50,15,dot,dot);
+            // text("District 7", 70+dist,25);
             
             
-            ellipse(50,15,dot,dot);
-            text("District 7", 70+dist,25);
-            
-            ellipse(105,50,dot,dot);
-            text("District 1", 110+dist,55);
-            //println(mouseX,mouseY);
+            // ellipse(105,50,dot,dot);
+            // text("District 1", 110+dist,55);
+            // //println(mouseX,mouseY);
 
-            ellipse(25,70,dot,dot);
-            text("District 4", 35+dist,80);
+            // ellipse(25,70,dot,dot);
+            // text("District 4", 35+dist,80);
 
-            ellipse(80,87,dot,dot);
-            text("Capitol", 90+dist,95);
+            // ellipse(80,87,dot,dot);
+            // text("Capitol", 90+dist,95);
 
-            ellipse(130,100,dot,dot);
-            text("District 9", 140+dist,110);
+            // ellipse(130,100,dot,dot);
+            // text("District 9", 140+dist,110);
 
-            ellipse(130,142,dot,dot);
-            text("District 2", 140+dist,152);
+            // ellipse(130,142,dot,dot);
+            // text("District 2", 140+dist,152);
 
-            ellipse(50,150,dot,dot);
-            text("District 5", 60+dist,160);
+            // ellipse(50,150,dot,dot);
+            // text("District 5", 60+dist,160);
 
-            ellipse(125,205,dot,dot);
-            text("District 10", 135+dist,215);
+            // ellipse(125,205,dot,dot);
+            // text("District 10", 135+dist,215);
 
-            ellipse(240,240,dot,dot);
-            text("District 11", 250+dist,250);
+            // ellipse(240,240,dot,dot);
+            // text("District 11", 250+dist,250);
 
-             ellipse(260,210,dot,dot);
-            text("District 8", 270+dist,220);
+            // ellipse(260,210,dot,dot);
+            // text("District 8", 270+dist,220);
                 
-            ellipse(280,180,dot,dot);
-            text("District 12", 290+dist,190);
+            // ellipse(280,180,dot,dot);
+            // text("District 12", 290+dist,190);
 
-            ellipse(250,100,dot,dot);
-            text("District 6", 260+dist,110);
+            // ellipse(250,100,dot,dot);
+            // text("District 6", 260+dist,110);
 
-            ellipse(251,130,dot,dot);
-            text("District 3", 261+dist,140);
+            // ellipse(251,130,dot,dot);
+            // text("District 3", 261+dist,140);
 
-            popMatrix();
+            // popMatrix();
 
         }
 
@@ -568,7 +613,6 @@ public class UI extends PApplet
         // {
         //     Button b = buttons.get(i);
         //     if(dist(mouseX,mouseY,b.getX(),b.getY()) < (b.getWidth())/2)
-        //     {
         //         draw = true;
         //     }
         // }
@@ -577,6 +621,8 @@ public class UI extends PApplet
         else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
             set = 2;
+
+            
             
         }
 
@@ -598,6 +644,13 @@ public class UI extends PApplet
        {
            set = 0;
        }
+
+    //    if(dist(mouseX,mouseY,)
+    //         {
+    //             println("hello");
+    //             drawDistrict1();
+    //         }
+      
 
     }
 
@@ -633,10 +686,6 @@ public class UI extends PApplet
              
         // }
 
-        public void hover()
-        {
-
-        }
 
 
 

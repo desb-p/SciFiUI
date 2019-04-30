@@ -16,7 +16,7 @@ public class Weapons
         this.y = y;
         this.width = width;
 
-
+        
 
     }
 

@@ -1,7 +1,7 @@
 package ie.tudublin;
 
-
 import processing.core.PImage;
+import processing.data.TableRow;
 
 public class Map 
 {
@@ -35,25 +35,34 @@ public class Map
         
         ui.image(panem, x, y, width,height );
 
-        
        
     }
 
-    public void hover(float posX, float posY)
+    private String name;
+    
+    public Map(TableRow row)
     {
-        float d = ui.dist(x,y,posX,posY);
-
-        if(d < 10/2)
-        {
-            hover = true;
-        }
-
-        else 
-        {
-            hover = false;
-        }
-
+        this.name = row.getString("Name");
     }
+
+    
+
+
+    // public void hover(float posX, float posY)
+    // {
+    //     float d = ui.dist(x,y,posX,posY);
+
+    //     if(d < 10/2)
+    //     {
+    //         hover = true;
+    //     }
+
+    //     else 
+    //     {
+    //         hover = false;
+    //     }
+
+    // }
 
     /**
      * @return the ui
@@ -179,5 +188,19 @@ public class Map
      */
     public void setPanem(PImage panem) {
         this.panem = panem;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }
