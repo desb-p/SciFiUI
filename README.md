@@ -1,14 +1,16 @@
 # SciFi UI Project
 
-Name:
+Name: Desiree Pepito
 
-Student Number: 
+Student Number: C17770271
 
 Fork this repository and use it a starter project for your assignment
 
 # Description of the assignment
+For this assignment, we are asked to implement a Sci Fi User Interface.  I decided to implement a user interface based on one of the Sci Fi movies named The Hunger Games, which is originally based on a book written by Suzanne Collins. This user interface essentially gives the user information when they are in battle and whenever they are in need of help. The user will be able to find a map to access a district and select which weapons they can use, as well as a clock to let them know how much time they have left in the battle.
 
 # Instructions
+ 
 
 # How it works
 
