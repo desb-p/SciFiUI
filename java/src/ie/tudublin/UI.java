@@ -320,23 +320,21 @@ public class UI extends PApplet
             }
         }
 
-
+       int dist = 7;
         public void drawDistricts()
         {
             for(District d: districts)
             {
                 noFill();
-                stroke(255);
-                fill(random(0,255), random(0,255), random(0,255));
+                stroke(255,128,128);
+                fill(255);
                 
                 textSize(15);
-                text(d.getDistrict(),d.getLocationX(),d.getLocationY());
+                text(d.getDistrict(),d.getLocationX(),d.getLocationY()+dist);
                 
                 //text(d.getlocationX(),100,500 );
                 ellipse(d.getLocationX(),d.getLocationY(),7,7);
                 
-                
-            
                 noFill();
                 noStroke();
             }
@@ -352,7 +350,7 @@ public class UI extends PApplet
         // When start button is clicked
         if(set == 0)
         {
-           
+          
             background(0);
             fill(0);
             stroke(51,102,255);
