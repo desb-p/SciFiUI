@@ -46,24 +46,6 @@ public class Map
     }
 
     
-
-
-    // public void hover(float posX, float posY)
-    // {
-    //     float d = ui.dist(x,y,posX,posY);
-
-    //     if(d < 10/2)
-    //     {
-    //         hover = true;
-    //     }
-
-    //     else 
-    //     {
-    //         hover = false;
-    //     }
-
-    // }
-
     /**
      * @return the ui
      */

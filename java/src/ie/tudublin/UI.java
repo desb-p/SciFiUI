@@ -482,20 +482,15 @@ public class UI extends PApplet
                
             }
 
-            // noFill();
-            // noStroke();
-            // strokeWeight(1);
-
-            
-
-
+    
         }
 
         
 
     public void draw()
     {
-        println(mouseX,mouseY);
+        //println(mouseX,mouseY);
+
         // When start button is clicked
         if(set == 0)
         {
@@ -522,18 +517,10 @@ public class UI extends PApplet
         {
             whistle.play();
 
-            // if(!whistle.isPlaying())
-            // {
-            //     whistle.rewind();
-            //     whistle.play();
-            // }
-
-
             background(0);
             //background(255,255,230);
             stroke(255,128,128);
            
-            
 
                 fill(255);
                 button1.render();
@@ -599,19 +586,6 @@ public class UI extends PApplet
         else if(set == 2)
         {
 
-            // for(Map a : M)
-            // {
-            //     a.render();
-            // }
-
-            // for(int i = 0; i < M.size(); i++)
-            // {
-            //     M.get(i).hover(mouseX,mouseY);
-            // }
-            
-            //image(Panem, 400,400);
-            //map.render();
-
             int x2 = width/2;
             int y2 = height/2;
             int dot = 3;
@@ -619,13 +593,6 @@ public class UI extends PApplet
 
             
             image(Panem,width/2-250,height/2-200,400,400);
-            
-            // for(int i = 0; i < M.size(); i++)
-            // {
-            //     M.get(i).hover(mouseX,mouseY);
-            // }
-
-            //drawDistricts();
            
             fill(255);
             //noFill();
@@ -633,57 +600,6 @@ public class UI extends PApplet
             stroke(255,0,0);
 
             drawDistricts();
-
-            
-            
-            //drawDistrict1();
-            // pushMatrix();
-            // translate(x2-200,y2-150);
-            // fill(255);
-        
-            
-            // ellipse(50,15,dot,dot);
-            // text("District 7", 70+dist,25);
-            
-            
-            // ellipse(105,50,dot,dot);
-            // text("District 1", 110+dist,55);
-            // //println(mouseX,mouseY);
-
-            // ellipse(25,70,dot,dot);
-            // text("District 4", 35+dist,80);
-
-            // ellipse(80,87,dot,dot);
-            // text("Capitol", 90+dist,95);
-
-            // ellipse(130,100,dot,dot);
-            // text("District 9", 140+dist,110);
-
-            // ellipse(130,142,dot,dot);
-            // text("District 2", 140+dist,152);
-
-            // ellipse(50,150,dot,dot);
-            // text("District 5", 60+dist,160);
-
-            // ellipse(125,205,dot,dot);
-            // text("District 10", 135+dist,215);
-
-            // ellipse(240,240,dot,dot);
-            // text("District 11", 250+dist,250);
-
-            // ellipse(260,210,dot,dot);
-            // text("District 8", 270+dist,220);
-                
-            // ellipse(280,180,dot,dot);
-            // text("District 12", 290+dist,190);
-
-            // ellipse(250,100,dot,dot);
-            // text("District 6", 260+dist,110);
-
-            // ellipse(251,130,dot,dot);
-            // text("District 3", 261+dist,140);
-
-            // popMatrix();
 
             for(int i = 0; i <D1.size(); i++)
             {
@@ -718,9 +634,7 @@ public class UI extends PApplet
         else if (set == 4)
         {
             background(0);
-            //fill(0);
-            //image(weapon1, 550, 0);
-            //image(weapon1,width/2-250,height/2-200,400,400);
+
             if (!showChildImg) 
             {
                 image(images[currImage], width/2-250, height/2-200, 400, 400);
@@ -777,14 +691,6 @@ public class UI extends PApplet
             
         }
 
-        // for(int i =0; i < buttons.size();i++)
-        // {
-        //     Button b = buttons.get(i);
-        //     if(dist(mouseX,mouseY,b.getX(),b.getY()) < (b.getWidth())/2)
-        //         draw = true;
-        //     }
-        // }
-
         // press map
         else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
@@ -813,56 +719,9 @@ public class UI extends PApplet
            set = 0;
        }
 
-    //    if(mouseX > 575 && mouseX < 584 && mouseY > 303 && mouseY < 313)
-    //    {
-    //        drawDistrict1();
-    //    }
-
-
-
-       
-
-    //    if(dist(mouseX,mouseY,)
-    //         {
-    //             println("hello");
-    //             drawDistrict1();
-    //         }
-      
-
     }
 
-
-        // public void drawDistricts()
-        // {
-        //     if(mouseX ==  571 && mouseY == 317)
-        //     {
-        //         background(0);
-        //     }
-        // }
-
-        
-        // public void drawData()
-        // {
             
-           
-
-        //     // for(Map a : M)
-        //     // {
-        //       ellipse(coord1.getX(),coord1.getY(),20,20);
-        //     // }
-
-        //     if(coord1.hover)
-        //     {
-        //         background(0);
-
-        //         if(coord1.getX() == 50)
-        //             {
-        //                 ellipse(coord1.getX(),coord1.getY(),20,20);
-        //             }
-        //     }
-             
-        // }
-
 
 
 

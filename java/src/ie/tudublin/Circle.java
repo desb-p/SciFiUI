@@ -7,7 +7,6 @@ public class Circle extends UIElement
 
 {
 
-
     private int rotate = 1;
     private int rotate2 = 1;
     private int rotate3 = 1;
