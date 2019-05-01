@@ -112,14 +112,15 @@ This is a [hyperlink](http://bryanduggan.org)
 ##### Headings
 
 
-# Start Page
+## Start Page
 
 ![An image](images/Start.png)
 
-# Buttons Page
+## Buttons Page
 
 ![An image](images/Buttons.png)
 
-# YouTube Video for my Assignment
+## YouTube Video for my Assignment
 
-![Youtube_video] (https://youtu.be/UQNmRxr8QQY)
+
+[![YouTube](https://github.com/desb-p/SciFiUI/blob/master/images/Start.png)](https://www.youtube.com/watch?v=UQNmRxr8QQY&feature=youtu.be)
