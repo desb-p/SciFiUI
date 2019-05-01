@@ -681,7 +681,6 @@ public class UI extends PApplet
     }
             
 
-
 	public void mousePressed()
     {
         // press start 
@@ -695,8 +694,6 @@ public class UI extends PApplet
         else if(mouseX > 249 && mouseX < 350 && mouseY > 152 && mouseY < 251)
         {
             set = 2;
-
-            
             
         }
 
