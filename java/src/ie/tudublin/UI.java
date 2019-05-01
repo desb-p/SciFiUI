@@ -18,6 +18,8 @@ public class UI extends PApplet
     ArrayList<Map> M  = new ArrayList<Map>();
     //ArrayList<Map> District1 = new ArrayList<Map>();
     ArrayList<District> districts = new ArrayList<District>();
+    ArrayList<District1> D1 = new ArrayList<District1>();
+    
 
 
     Button startButton;
@@ -161,7 +163,10 @@ public class UI extends PApplet
 
         loadDistricts();
 
+        loadDistrict1();
 
+        
+       
 
     }
 
@@ -330,16 +335,152 @@ public class UI extends PApplet
                 fill(255);
                 
                 textSize(15);
-                text(d.getDistrict(),d.getLocationX(),d.getLocationY()+dist);
-                
-                //text(d.getlocationX(),100,500 );
+               
+                text(d.getDistrict(),d.getLocationX(),d.getLocationY());
                 ellipse(d.getLocationX(),d.getLocationY(),7,7);
+
+                
+            
                 
                 noFill();
                 noStroke();
             }
         }
 
+        public void loadDistrict1()
+        {
+            Table table = loadTable("district1.csv", "header");
+            for(TableRow row : table.rows())
+            {
+                District1 district1 = new District1(row);
+                District1 X = new District1(row);
+                District1 Y = new District1(row);
+                D1.add(district1);
+                D1.add(X);
+                D1.add(Y);
+            
+
+            }
+        }
+
+        public void drawDistrict1()
+        {
+            for(District1 distr1 : D1)
+            {
+                noFill();
+                stroke(255);
+                fill(255);
+                textSize(15);
+                //text(distr1.getDistrictOne(),0, height/2);
+                if(distr1.hover)
+                {
+
+                    strokeWeight(3);
+                    stroke(77,255,166);
+                    //rect(distr1.getCoordX() - 240, distr1.getCoordY() - 50, 106, 106, 10;
+                 if (distr1.getCoordX() == 590) 
+                // if (distr1.getCoordX() == 590 && distr1.getCoordY() == 340)
+                {
+                    
+                    //text(distr1.getDistrictOne(),320,367,100,100);
+                    textSize(10);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),300,20);
+                    
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
+                
+                 else if(distr1.getCoordX() == 662)
+                {
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
+                
+                else if(distr1.getCoordX() == 738)
+                {
+                    //text(distr1.getDistrictOne(),320,367,10,300);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
+
+                // else if(distr1.getCoordX() == 538 && distr1.getCoordY() == 531 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 551 && distr1.getCoordY() == 448 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 712 && distr1.getCoordY() == 337 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 580 && distr1.getCoordY() == 307 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 787 && distr1.getCoordY() == 343 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 660 && distr1.getCoordY() == 406 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 643 && distr1.getCoordY() == 533 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 748 && distr1.getCoordY() == 530 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 809 && distr1.getCoordY ()== 452 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+
+                // else if(distr1.getCoordX() == 619 && distr1.getCoordY() == 376 )
+                // {
+                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
+                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                // }
+                }
+
+                // noFill();
+                // noStroke();
+                
+               
+            }
+
+            // noFill();
+            // noStroke();
+            // strokeWeight(1);
+
+            
+
+
+        }
+
+        
+
+       
         
 
     
@@ -365,7 +506,6 @@ public class UI extends PApplet
             // line(100,100,mouseX, mouseY);
             // println(mouseX, mouseY);
 
-           
         
         }
         
@@ -477,6 +617,10 @@ public class UI extends PApplet
             stroke(255,0,0);
 
             drawDistricts();
+
+            
+            
+            //drawDistrict1();
             // pushMatrix();
             // translate(x2-200,y2-150);
             // fill(255);
@@ -524,6 +668,16 @@ public class UI extends PApplet
             // text("District 3", 261+dist,140);
 
             // popMatrix();
+
+            for(int i = 0; i <D1.size(); i++)
+            {
+                D1.get(i).hover(mouseX,mouseY);
+            }
+
+            for(int i = 0; i <D1.size(); i++)
+            {
+                drawDistrict1();
+            }
 
         }
 
@@ -642,6 +796,15 @@ public class UI extends PApplet
        {
            set = 0;
        }
+
+    //    if(mouseX > 575 && mouseX < 584 && mouseY > 303 && mouseY < 313)
+    //    {
+    //        drawDistrict1();
+    //    }
+
+
+
+       
 
     //    if(dist(mouseX,mouseY,)
     //         {
