@@ -89,60 +89,19 @@ The images used are loaded in set up in the UI class as well as the four bottons
 The audio file is also loaded and initialised in the UI class. It is then declared to be played in the buttons section.
 
 # What I am most proud of in the assignment
+What I'm most proud of in doing this assignment was that I was able to choose what kind of user interface I want to design. In my opinion it was a challenging assignment, it was not easy coming up with an idea at first but as time processed I began to think of a lot of ideas. There were some tasks that were okay to implement and some that very difficult that consumed a lot of time but halfway through, I began to realise that this was not just a programming project but there was also a fun side to it. I was very happy with the code I wrote by the end of this project.
 
-# Markdown Tutorial
+In my opinion, I was able to learn a lot from using Processing and Java programming language. I learnt how to implement numerous things such as hoovering buttons, learning new libraries in processing etc. I believe that this project helped me gained better understanding and knowledge of Processing, Java and using git. From the experience of doing this project, I also believe this will help me in the nearby future. 
 
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-# Start Page
+## Start Page
 
 ![An image](images/Start.png)
 
-# Buttons Page
+## Buttons Page
 
 ![An image](images/Buttons.png)
 
-![A different image] images/Buttons.png)
+## YouTube Video for my Assignment
+
+
+[![YouTube](https://github.com/desb-p/SciFiUI/blob/master/images/Start.png)](https://www.youtube.com/watch?v=UQNmRxr8QQY&feature=youtu.be)
