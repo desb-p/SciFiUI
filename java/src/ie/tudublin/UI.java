@@ -378,89 +378,116 @@ public class UI extends PApplet
                     strokeWeight(3);
                     stroke(77,255,166);
                     //rect(distr1.getCoordX() - 240, distr1.getCoordY() - 50, 106, 106, 10;
+
+                    //district 1
                  if (distr1.getCoordX() == 590) 
-                // if (distr1.getCoordX() == 590 && distr1.getCoordY() == 340)
+          
                 {
                     
                     //text(distr1.getDistrictOne(),320,367,100,100);
                     textSize(10);
-                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),300,20);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
                     
                     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
                 }
                 
+                //district 2
                  else if(distr1.getCoordX() == 662)
                 {
+                    textSize(8);
                     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
                     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
                 }
                 
+                //district 3
                 else if(distr1.getCoordX() == 738)
                 {
-                    //text(distr1.getDistrictOne(),320,367,10,300);
+                    textSize(8);
                     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
                     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
                 }
 
-                // else if(distr1.getCoordX() == 538 && distr1.getCoordY() == 531 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district4
+                else if(distr1.getCoordX() == 538)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 551 && distr1.getCoordY() == 448 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district5
+                else if(distr1.getCoordX() == 551)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 712 && distr1.getCoordY() == 337 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district6
+                else if(distr1.getCoordX() == 712)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 580 && distr1.getCoordY() == 307 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district7
+                else if(distr1.getCoordX() == 579)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 787 && distr1.getCoordY() == 343 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district8
+                else if(distr1.getCoordX() == 787)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 660 && distr1.getCoordY() == 406 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district9
+                else if(distr1.getCoordX() == 660)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 643 && distr1.getCoordY() == 533 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district10
+                else if(distr1.getCoordX() == 643)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 748 && distr1.getCoordY() == 530 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district11
+                else if(distr1.getCoordX() == 748)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
 
-                // else if(distr1.getCoordX() == 809 && distr1.getCoordY ()== 452 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                //district12
 
-                // else if(distr1.getCoordX() == 619 && distr1.getCoordY() == 376 )
-                // {
-                //     text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY()+dist);
-                //     ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
-                // }
+                else if(distr1.getCoordX() == 809)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),60,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
+
+                //capitol
+                else if(distr1.getCoordX() == 619)
+                {
+                    textSize(8);
+                    text(distr1.getDistrictOne(),distr1.getCoordX(),distr1.getCoordY(),100,100);
+                    ellipse(distr1.getCoordX(),distr1.getCoordY(),7,7);
+                }
+
                 }
 
                 // noFill();
