@@ -139,9 +139,10 @@ public void render()
 
 # Start Page
 
-(images/Start.png)
+![An image](images/Start.png)
 
 # Buttons Page
 
-(images/Buttons.png)
+![An image](images/Buttons.png)
 
+![A different image] images/Buttons.png)
