@@ -40,6 +40,44 @@ If the user wishes to exit the UI, the "Exit" button can be clicked and it will 
 
 # How it works
 
+I have created numerous classes for this project: 
+ 
+#### Main
+
+The main class is used to run the program.
+
+#### UIElement
+
+This is the super class which the classes will inherit from.
+
+#### Circle
+
+This class drew the circle and the rotating arcs at the start page. I used arc and ellipse to rotate the direction of the circles.
+
+#### Clock 
+This stores the location and position of the clock which is being declared to the UI Class when the clock button is pressed.
+
+#### Grid 
+
+This draws a dotted grid that displays with the buttons. I used two for loops to render the dots as well as an ellipse. 
+
+#### Weapons
+
+The weapons class stores the location of the weapon images to be implemented in the UI Class. 
+Two arrays were also created to store the image of each weapon and its description. Again, this is created in the UI class.
+
+#### Map
+
+It takes in 8 parameters which is then declared in UI. The map also renders the x,y, width and height coordinates of map "Panem" image. A CSV file is to be generated so a table row is being passed as a parameter to get the first row of the csv file which is *Name*. 
+
+
+#### DistrictInfo
+
+This class creates CSV file stores the location of the coordinates of each district. "District", "locationX", "locationY" variables were created.
+Getters and setters were generated to access the variables outside of the class.
+
+
+
 
 # What I am most proud of in the assignment
 
