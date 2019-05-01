@@ -111,31 +111,6 @@ This is a [hyperlink](http://bryanduggan.org)
 #### Headings
 ##### Headings
 
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
 
 # Start Page
 
@@ -145,4 +120,6 @@ public void render()
 
 ![An image](images/Buttons.png)
 
-![A different image] images/Buttons.png)
+# YouTube Video for my Assignment
+
+![Youtube_video] (https://youtu.be/UQNmRxr8QQY)
