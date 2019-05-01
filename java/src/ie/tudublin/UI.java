@@ -345,7 +345,6 @@ public class UI extends PApplet
                 D1.add(X);
                 D1.add(Y);
             
-
             }
         }
 
