@@ -101,6 +101,10 @@ In my opinion, I was able to learn a lot from using Processing and Java programm
 
 ![An image](images/Buttons.png)
 
+## Map Page
+![An image](images/Panem.png)
+
+
 ## YouTube Video for my Assignment
 
 
