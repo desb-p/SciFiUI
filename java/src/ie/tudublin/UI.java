@@ -363,7 +363,7 @@ public class UI extends PApplet
 
                     strokeWeight(3);
                     stroke(77,255,166);
-                    //rect(distr1.getCoordX() - 240, distr1.getCoordY() - 50, 106, 106, 10;
+                    
 
                     //district 1
                  if (distr1.getCoordX() == 590) 
@@ -489,7 +489,7 @@ public class UI extends PApplet
 
     public void draw()
     {
-        //println(mouseX,mouseY);
+        
 
         // When start button is clicked
         if(set == 0)
@@ -503,11 +503,7 @@ public class UI extends PApplet
             rect(40,30, width - 70, height - 70);
             image(Mockingjay, 550, 180);
             c.render(); // draws Circle
-            
-
-            // stroke(255);
-            // line(100,100,mouseX, mouseY);
-            // println(mouseX, mouseY);
+        
 
         
         }
@@ -518,7 +514,6 @@ public class UI extends PApplet
             whistle.play();
 
             background(0);
-            //background(255,255,230);
             stroke(255,128,128);
            
 
@@ -718,8 +713,7 @@ public class UI extends PApplet
 
     }
 
-            
-
+        
 
 
 }
