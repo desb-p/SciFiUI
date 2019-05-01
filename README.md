@@ -70,13 +70,19 @@ Two arrays were also created to store the image of each weapon and its descripti
 
 It takes in 8 parameters which is then declared in UI. The map also renders the x,y, width and height coordinates of map "Panem" image. A CSV file is to be generated so a table row is being passed as a parameter to get the first row of the csv file which is *Name*. 
 
-
-#### DistrictInfo
-
-This class creates CSV file stores the location of the coordinates of each district. "District", "locationX", "locationY" variables were created.
+#### District
+This class creates CSV file stores the coordinates of each district. "District", "locationX", "locationY" variables were created.
 Getters and setters were generated to access the variables outside of the class.
 
+#### DistrictInfo
+This class creates the CSV file stores the information of each district. "CoordX", "CoordY", "districtOne" variables were created.
+Once again, Getters and setters were generated to access the variables outside of the class.
+The districts in the map can be hovered depending the location of the mouseX, mouseY. Once it is hovered, information is displayed.
 
+#### Welcome 
+
+Creates the CSV file that stores the Welcome message at the botttom of the Buttons page. This is then initialised in UI.
+A message "Welcome Human...Accessing Data" will move from side to side. An if statement was created in order for the message to disappear and reappear back on the screen.
 
 
 # What I am most proud of in the assignment
