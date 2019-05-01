@@ -95,17 +95,18 @@ In my opinion, I was able to learn a lot from using Processing and Java programm
 
 ## Start Page
 
-![An image](images/Start.png)
+![An image](java/data/Start.png)
 
 ## Buttons Page
 
-![An image](images/Buttons.png)
+![An image](java/data/Buttons.png)
 
 ## Map Page
-![An image](images/Panem.png)
+![An image](java/data/Panem.png)
 
 
 ## YouTube Video for my Assignment
 
 
-[![YouTube](https://github.com/desb-p/SciFiUI/blob/master/images/Start.png)](https://www.youtube.com/watch?v=UQNmRxr8QQY&feature=youtu.be)
+[![YouTube](https://github.com/desb-p/SciFiUI/blob/master/java/data/Start.png)](https://www.youtube.com/watch?v=UQNmRxr8QQY&feature=youtu.be)
+
