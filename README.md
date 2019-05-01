@@ -85,6 +85,9 @@ Creates the CSV file that stores the Welcome message at the botttom of the Butto
 A message "Welcome Human...Accessing Data" will move from side to side. An if statement was created in order for the message to disappear and reappear back on the screen.
 
 
+The images used are loaded in set up in the UI class as well as the four bottons. 
+The audio file is also loaded and initialised in the UI class. It is then declared to be played in the buttons section.
+
 # What I am most proud of in the assignment
 
 # Markdown Tutorial
