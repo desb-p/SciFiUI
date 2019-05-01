@@ -3,7 +3,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import processing.data.TableRow;
 
-public class District1
+public class DistrictInfo
 {
     
     private float CoordX;
@@ -14,7 +14,7 @@ public class District1
 
 boolean hover = false;
 
-    public District1(TableRow row)
+    public DistrictInfo(TableRow row)
     {
         
         this.CoordX = row.getFloat("CoordX");
@@ -39,20 +39,6 @@ boolean hover = false;
         {
             hover = false;
         }
-    }
-
-    /**
-     * @return the districtOne
-     */
-    public String getDistrictOne() {
-        return districtOne;
-    }
-
-    /**
-     * @param districtOne the districtOne to set
-     */
-    public void setDistrictOne(String districtOne) {
-        this.districtOne = districtOne;
     }
 
     /**
@@ -84,6 +70,20 @@ boolean hover = false;
     }
 
     /**
+     * @return the districtOne
+     */
+    public String getDistrictOne() {
+        return districtOne;
+    }
+
+    /**
+     * @param districtOne the districtOne to set
+     */
+    public void setDistrictOne(String districtOne) {
+        this.districtOne = districtOne;
+    }
+
+    /**
      * @return the uI
      */
     public PApplet getUI() {
@@ -110,6 +110,7 @@ boolean hover = false;
     public void setHover(boolean hover) {
         this.hover = hover;
     }
+
    
 }
 

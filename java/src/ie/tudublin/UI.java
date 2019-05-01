@@ -18,7 +18,7 @@ public class UI extends PApplet
     ArrayList<Map> M  = new ArrayList<Map>();
     //ArrayList<Map> District1 = new ArrayList<Map>();
     ArrayList<District> districts = new ArrayList<District>();
-    ArrayList<District1> D1 = new ArrayList<District1>();
+    ArrayList<DistrictInfo> D1 = new ArrayList<DistrictInfo>();
     
 
 
@@ -150,22 +150,8 @@ public class UI extends PApplet
         minim = new Minim(this);
         whistle = minim.loadFile("whistle.mp3");
 
-       
-        Map coord1 = new Map(this, 50,15, width, height, Panem, mouseX, mouseY);
-        M.add(coord1);
-
-
-        Map coord2 = new Map(this, 105,50, width, height, Panem, mouseX, mouseY);
-        M.add(coord2);
-
-        Map coord3 = new Map(this, 25,70, width, height, Panem, mouseX, mouseY);
-        M.add(coord3);
-
         loadDistricts();
-
         loadDistrict1();
-
-        
        
 
     }
@@ -352,9 +338,9 @@ public class UI extends PApplet
             Table table = loadTable("district1.csv", "header");
             for(TableRow row : table.rows())
             {
-                District1 district1 = new District1(row);
-                District1 X = new District1(row);
-                District1 Y = new District1(row);
+                DistrictInfo district1 = new DistrictInfo(row);
+                DistrictInfo X = new DistrictInfo(row);
+                DistrictInfo Y = new DistrictInfo(row);
                 D1.add(district1);
                 D1.add(X);
                 D1.add(Y);
@@ -365,7 +351,7 @@ public class UI extends PApplet
 
         public void drawDistrict1()
         {
-            for(District1 distr1 : D1)
+            for(DistrictInfo distr1 : D1)
             {
                 noFill();
                 stroke(255);
@@ -507,11 +493,6 @@ public class UI extends PApplet
 
         
 
-       
-        
-
-    
-
     public void draw()
     {
         println(mouseX,mouseY);
@@ -540,6 +521,14 @@ public class UI extends PApplet
         else if (set == 1)
         {
             whistle.play();
+
+            // if(!whistle.isPlaying())
+            // {
+            //     whistle.rewind();
+            //     whistle.play();
+            // }
+
+
             background(0);
             //background(255,255,230);
             stroke(255,128,128);
